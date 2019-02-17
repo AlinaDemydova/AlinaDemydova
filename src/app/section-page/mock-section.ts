@@ -1,0 +1,95 @@
+import { SectionTemplate } from './section-template';
+
+export const SECTION: SectionTemplate[] = [
+    {
+        id: 1,
+        titleMenu: '"Книжки" Disney',
+        type: 'buggy',
+        model: 'disneyXS',
+        backgroundImageMainScreen: 'assets/img/img_section/section_disney.PNG',
+        h1: 'Прогулочные коляски-книжки Easywalker Disney XS',
+        iframeSrc: 'https://www.youtube.com/embed/97L8dk44uJs',
+        ulLi1: 'Складываются и раскладываются одним движением.',
+        ulLi2: 'Вес 6 кг.',
+        ulLi3: 'Сответствуют параметрам ручной клади.',
+        ulLi4: 'Дизайн и брендирование от всемирно известной компании Disney.',
+        ulLi5: 'В комплект входят: шасси, сидение + тент, дождевик, бампер, корзина для покупок. ',
+        h2: 'Выберите свою Easywalker Disney XS'
+        
+    },
+    {
+        id: 2,
+        titleMenu: '"Книжки" Mini',
+        type: 'buggy',
+        model: 'miniXs',
+        backgroundImageMainScreen: '../../assets/img/img_section/section_disney.PNG',
+        h1: 'Прогулочные коляски-книжки Easywalker MINI XS',
+        iframeSrc: 'https://www.youtube.com/embed/y3FTyX2OyEw',
+        ulLi1: 'Складываются и раскладываются одним движением.',
+        ulLi2: 'Вес 6 кг.',
+        ulLi3: 'Сответствуют параметрам ручной клади.',
+        ulLi4: 'Дизайн и брендирование в стиле MINI Cooper.',
+        ulLi5: 'В комплект входят: шасси, сидение + тент, дождевик, бампер, корзина для покупок. ',
+        h2: 'Выберите свою Easywalker MINI XS'
+    },
+    {
+        id: 3,
+        titleMenu: '"Книжки" Easywalker',
+        type: 'buggy',
+        model: 'easywalkerXs',
+        backgroundImageMainScreen: '../../assets/img/img_section/section_disney.PNG',
+        h1: 'Прогулочные коляски-книжки Easywalker XS',
+        iframeSrc: 'https://www.youtube.com/embed/gSz8z3_WA5E',
+        ulLi1: 'Складываются и раскладываются одним движением.',
+        ulLi2: 'Вес 6 кг.',
+        ulLi3: 'Сответствуют параметрам ручной клади.',
+        ulLi4: 'Дизайн и брендирование от Easywalker.',
+        ulLi5: 'В комплект входят: шасси, сидение + тент, дождевик, бампер, корзина для покупок. ',
+        h2: 'Выберите свою Easywalker XS'
+    },
+    {
+        id: 4,
+        titleMenu: '"Трости" Mini',
+        type: 'buggy',
+        model: 'miniBuggy',
+        backgroundImageMainScreen: '../../assets/img/img_section/section_disney.PNG',
+        h1: 'Прогулочные коляски-трости MINI',
+        iframeSrc: 'https://www.youtube.com/embed/gSz8z3_WA5E',
+        ulLi1: 'Складываются и раскладываются одним движением.',
+        ulLi2: 'Вес 6 кг.',
+        ulLi3: 'Сответствуют параметрам ручной клади.',
+        ulLi4: 'Дизайн и брендирование от Easywalker.',
+        ulLi5: 'В комплект входят: шасси, сидение + тент, дождевик, бампер, корзина для покупок. ',
+        h2: 'Выберите свою Easywalker XS'
+    },
+    {
+        id: 5,
+        titleMenu: 'Harvey 2.0',
+        type: 'stroller',
+        model: 'harvey',
+        backgroundImageMainScreen: '../../assets/img/img_section/section_disney.PNG',
+        h1: 'Коляски 2в1 для новорожденных Harvey 2.0',
+        iframeSrc: 'https://www.youtube.com/embed/gSz8z3_WA5E',
+        ulLi1: '1 пункт',
+        ulLi2: '1 пункт',
+        ulLi3: '1 пункт',
+        ulLi4: '1 пункт',
+        ulLi5: 'В комплект входят: шасси, сидение + тент, дождевик, бампер, корзина для покупок. ',
+        h2: 'Выберите свою Harvey 2.0'
+    },
+    {
+        id: 6,
+        titleMenu: 'Charley',
+        type: 'stroller',
+        model: 'charley',
+        backgroundImageMainScreen: '../../assets/img/img_section/section_disney.PNG',
+        h1: 'Коляски 2в1 для новорожденных Charley',
+        iframeSrc: 'https://www.youtube.com/embed/gSz8z3_WA5E',
+        ulLi1: '1 пункт',
+        ulLi2: '1 пункт',
+        ulLi3: '1 пункт',
+        ulLi4: '1 пункт',
+        ulLi5: 'В комплект входят: шасси, сидение + тент, дождевик, бампер, корзина для покупок. ',
+        h2: 'Выберите свою Charley'
+    }
+]

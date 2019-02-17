@@ -1,0 +1,68 @@
+<div class="container-fluid d-flex container_padding">
+  <div class="checkBox">
+    <input type='checkbox' [(ngModel)]="sortByStroller">Коляски 2в1
+    <br>
+    <input type='checkbox' [(ngModel)]="sortByBuggy">Прогулочные коляски
+    <hr>
+    <input type='checkbox' [(ngModel)]="sortByGirl">Для девочек
+    <br>
+    <input type='checkbox' [(ngModel)]="sortByBoy">Для мальчиков
+    <br>
+    <input type='checkbox' [(ngModel)]="sortByUnisex">Унисекс
+  </div>
+  <div class="container">
+      <div class="row text-center justify-content-center">
+          <div *ngFor='let choose of choosedBuggy' class="col-xs-12 col-sm-4">
+              <div class="card">
+                <img src="{{choose.img1}}" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h4 class="card-title">{{choose.h1}}</h4>
+                  <p>{{choose.price}} грн.</p>
+                  <button routerLink="/product/{{choose.id}}">Посмотреть</button>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- 
+1. При кожному новому кліку на чккбокс перевірка всіх чекбоксів.
+2. Якщо stroller==true, то сортування по 
+
+if (stroller == checked) {
+  listStroller = список, відсортований по типу "stroller";
+    if(boy==checked || girl==checked || all==checked) {
+      if(boy==checked) {
+        return listStroller, відсортований по типу "boy"
+      } else if (girl==checked) {
+        return listStroller, відсортований по типу "girl"
+      } else if (all==checked) {
+        return listStroller, відсортований по типу "all"
+      } else if (boy==checked && girl==checked) {
+        return listStroller, відсортований по типу "boy" і "girl"
+      } else if (girl==checked && all==checked) {
+        return listStroller, відсортований по типу "girl" і "all"
+      } else if (boy==checked && all==checked) {
+        return listStroller, відсортований по типу "boy" і "all"
+      } else if (boy==checked && girl==checked && all==checked) {
+        return список, відсортований по "stroller";
+      }
+    } else {
+      return список, відсортований по "stroller";
+    }
+
+} else if (buggy == checked) {
+
+
+
+} else if (stroller == checked && buggy == checked) {
+  return весь список;
+} else {
+  document.write('Виберіть параметри для сотрування');
+} -->
+<!-- 
+1. зберігати весь список в одну змінну, фільтрований в іншу
+2. на кожен чекбокс викликається функція сортування за допогою ngModelChange
+3. кожному чебоксу буде відповідати змінна яка записується у ngModel
+4. виводиться відсортований список
+5. при ngOnInit викликати функцію сортування -->

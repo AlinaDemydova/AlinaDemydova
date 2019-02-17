@@ -1,0 +1,90 @@
+
+	
+<div class="container-fluid">
+	<div class="container">
+		<h1>{{currentBuggy.h1}}</h1>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<img src="{{currentBuggy.img1}}" alt="" height="300">
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<div class="d-flex">
+					<p>{{currentBuggy.price}} грн</p>
+					<button>Купить</button>
+				</div>
+				<ul>
+					<li>Бесплатная доставка</li>
+					<li>Оплата при получении</li>
+					<li>Гарантия 12 месяцев</li>
+				</ul>
+				<button>Добавить в сравнение</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="container">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+			<a aria-controls="home" aria-selected="true" class="nav-link active"
+			data-toggle="tab" href="#home" id="home-tab" role="tab">Описание</a>
+		</li>
+		<li class="nav-item">
+			<a aria-controls="profile" aria-selected="false" class="nav-link"
+			data-toggle="tab" href="#profile" id="profile-tab" role="tab">Особенности</a>
+		</li>
+		<li class="nav-item">
+			<a aria-controls="contact" aria-selected="false" class="nav-link"
+			data-toggle="tab" href="#contact" id="contact-tab" role="tab">Технические характеристики</a>
+		</li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+		<div aria-labelledby="home-tab" class="tab-pane fade show active" id="home"
+		role="tabpanel">
+		
+			SEO-текст
+			<br>
+			{{currentBuggy.seoText}}
+			
+			
+		</div>
+
+		<div aria-labelledby="profile-tab" class="tab-pane fade" id="profile" role=
+		"tabpanel">
+			<ul>
+				<li>Коляска изготовлена из легкого высокопрочного авиационного алюминия и весит всего 6 кг.</li>
+				<li>Компактные размеры - коляска соответствует параметрам ручной клади в большинстве видов транспорта.</li>
+				<li>Капор имеет защиту от солнца UPF 50+.</li>
+			</ul>
+		</div>
+		<div aria-labelledby="contact-tab" class="tab-pane fade" id="contact" role=
+		"tabpanel">
+			...
+		</div>
+	</div>
+	</div>
+</div>
+<div class="container" style="margin-top: 30px;">
+	
+<div class="container">
+	<h2>С этим товаром покупают</h2>
+	
+	
+	<div class='text-center' style="width: 1000px; height: 250px; border: 2px solid red; background-color: lightblue;">
+	  <carousel>
+		
+			<slide *ngFor='let slide of accessorises'>
+				<img src="{{slide.img}}" alt="first slide" style="display: block; width: 200px;">
+				{{slide.h1}}
+			</slide>
+
+	  </carousel>
+	</div>
+</div>
+	
+
+

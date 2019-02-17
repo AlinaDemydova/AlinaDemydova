@@ -1,0 +1,66 @@
+$mainColorRed: #f85969;
+$white: #ffffff;
+$fontSize: 16px;
+
+button {
+    padding: 0;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    background-color: transparent;
+    cursor: pointer;
+    }
+.container_padding {
+    padding: 30px;
+    }
+input {
+    width: 30px;
+    height: 30px;
+    border: 2px solid $mainColorRed;
+}
+h1 {
+    display: inline;
+    color: $mainColorRed;
+    text-transform: uppercase;
+    font-size: 18px;
+    width: 30%;
+    padding-left: 20px;
+    font-weight: 700;
+}
+h2 {
+    display: inline;
+    float: right;
+    padding-right: 40px; 
+    font-size: 18px;
+    width: 70%;
+    text-align: right;
+    font-weight: 700;
+}
+hr {
+    background-color: $mainColorRed;
+}
+
+.itemInCart {
+    img {
+        border: 2px solid $mainColorRed;
+        border-radius: 5px;
+        padding: 1px;
+        width: 100%;
+    }
+    .close_btn, .minus_btn, .plus_btn {
+        padding: 0;
+        border: none;
+        width: 21px;
+        height: 21px; 
+        background-repeat: no-repeat;
+    }
+    .close_btn {
+        background-image: url(../../assets/img/img_cart/close_btn.png);
+    }
+    .minus_btn {
+        background-image: url(../../assets/img/img_cart/minus_icon.png);
+    }
+    .plus_btn {
+        background-image: url(../../assets/img/img_cart/plus_icon.png);
+    }
+}
