@@ -54,14 +54,26 @@
 		<div aria-labelledby="profile-tab" class="tab-pane fade" id="profile" role=
 		"tabpanel">
 			<ul>
-				<li>Коляска изготовлена из легкого высокопрочного авиационного алюминия и весит всего 6 кг.</li>
-				<li>Компактные размеры - коляска соответствует параметрам ручной клади в большинстве видов транспорта.</li>
-				<li>Капор имеет защиту от солнца UPF 50+.</li>
+				<li>{{currentBuggy.feature1}}</li>
+				<li>{{currentBuggy.feature2}}</li>
+				<li>{{currentBuggy.feature3}}</li>
+				<li>{{currentBuggy.feature4}}</li>
+				<li>{{currentBuggy.feature5}}</li>
+				<li>{{currentBuggy.feature6}}</li>
+				<li>{{currentBuggy.feature7}}</li>
 			</ul>
 		</div>
 		<div aria-labelledby="contact-tab" class="tab-pane fade" id="contact" role=
 		"tabpanel">
-			...
+			<ul>
+				<li>{{currentBuggy.babyAge}}</li>
+				<li>{{currentBuggy.babyWeight}}</li>
+				<li>{{currentBuggy.foldingType}}</li>
+				<li>{{currentBuggy.backrestAdjustment}}</li>
+				<li>{{currentBuggy.seatBelts}}</li>
+				<li>{{currentBuggy.removableSoftParts}}</li>
+				<li>{{currentBuggy.basketForThings}}</li>
+			</ul>
 		</div>
 	</div>
 	</div>
@@ -70,16 +82,16 @@
 
 	
 <div class="container container_padding text-center">
-	<h2>С этим товаром покупают</h2>
+	<h2>С этим товаром обычно покупают</h2>
 	
-	
-	<div class='text-center'>
+	<div class='text-center container_padding'>
 	  <carousel>
 		
 			<slide *ngFor='let slide of accessorises'>
-				<img src="{{slide.img}}" alt="first slide" style="display: block; width: 200px;">
-				{{slide.h1}}, {{slide.price}} грн.
-				<button class="btn_buy"><img src="../../assets/img/img-product/cart.png" style="margin-right: 10px;">Купить</button>
+				<div><img src="{{slide.img}}" alt="first slide" style="max-width: 200px;"></div>
+				<div>{{slide.h1}}</div>
+				<div><b>{{slide.price}} грн.</b></div>
+				<div style="margin-bottom: 40px;"><button class="btn_buy"><img src="../../assets/img/img-product/cart.png" style="margin-right: 10px;">Купить</button></div>
 			</slide>
 
 	  </carousel>

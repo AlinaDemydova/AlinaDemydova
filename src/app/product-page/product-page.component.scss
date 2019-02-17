@@ -85,9 +85,10 @@ h1 {
     text-transform: uppercase;
     font-weight: 700; 
 }
-#home {
+#home, #profile {
     padding: 20px 20px 20px 30px;
 }
+
 .jcarousel img {
     display: block;
     max-width: 100%;
@@ -111,7 +112,7 @@ You must ensure that the position is relative or absolute and
 that the width is big enough to contain all items.
 */
 .jcarousel ul {
-    width: 400px;
+    // width: 400px;
     position: relative;
 
     /* Optional, required in this case since it's a <ul> element */
