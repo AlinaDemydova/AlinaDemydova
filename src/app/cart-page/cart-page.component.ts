@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-page',
@@ -7,6 +9,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./cart-page.component.scss']
 })
 export class CartPageComponent implements OnInit {
+
+  modalRef: BsModalRef;
 
   public loginForm: FormGroup;
 
@@ -20,7 +24,11 @@ export class CartPageComponent implements OnInit {
    onLesson: true
   }
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private modalService: BsModalService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     if (!this.loginForm) {
@@ -35,4 +43,7 @@ export class CartPageComponent implements OnInit {
     alert(this.USER);
   }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 }

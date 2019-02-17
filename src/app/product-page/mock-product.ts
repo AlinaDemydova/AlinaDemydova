@@ -11,7 +11,7 @@ export const ALLBUGGYS: ProductTemplate[] = [
     img1: '../../assets/img/img_product_disneyXs/Mickey.jpg',
     img2: '../../assets/img/img_product_disneyXs/Mickey.jpg',
     img3: '../../assets/img/img_product_disneyXs/Mickey.jpg',
-    seoText: '<p>Lorem ipsum dolor sit amet.</p><br><p>Lorem ipsum dolor sit amet.</p><br>  <p>Lorem ipsum dolor sit amet.</p>'
+    seoText: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit omnis deleniti cumque rem mollitia similique reprehenderit? Rem deserunt voluptas dicta reprehenderit fugit officia ducimus distinctio inventore similique ipsam praesentium laborum ipsa ullam, temporibus, ex minus aperiam reiciendis aliquam delectus molestias. Inventore esse delectus quas velit veniam distinctio officia neque perferendis placeat recusandae sint fugiat, debitis vel voluptatibus eveniet voluptate nam. Neque cumque iusto quam quo, odio esse ratione architecto ut veniam! Nostrum temporibus tenetur porro commodi odit dicta consequatur sequi, ducimus dignissimos rem molestias labore dolorem voluptate quos reprehenderit quas placeat voluptatem ratione amet optio dolor ex a. Suscipit commodi quod perspiciatis reprehenderit nulla asperiores, sint optio. Laborum ex eius excepturi nesciunt quis. Voluptate vero ducimus ratione. Expedita, magni quidem! Veniam laboriosam nulla excepturi architecto modi nisi deleniti quas? Quidem nulla beatae id voluptas recusandae consequuntur repudiandae neque facere atque qui labore, temporibus sit deleniti reprehenderit a tempora maiores fuga.'
 },
     {id: 102,
     sectionId: 1,

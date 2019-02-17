@@ -5,27 +5,33 @@
 
 <div class="container itemInCart">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-lg-4" style="max-width: 200px;">
+    <div class="col-xs-12 col-sm-4" style="max-width: 200px;">
       <img src="../../assets/img/img_product_disneyXs/Mickey.jpg" alt="">
     </div>
-    <div class="col-xs-10 col-sm-6 col-lg-6">
-        <div>
+    <div class="col-xs-10 col-sm-6">
+        <div class="d-flex">
           <h3>Прогулочная коляска-"книжка" Easywalker Disney XS Mickey Ornament</h3>
-          <div><button class="minus_btn"></button><input type="text"/><button class="plus_btn"></button></div>
+          <div>
+            <button class="minus_btn"></button>
+            <input name="quantity" type="text"/>
+            <button class="plus_btn"></button>
+          </div>
+        </div>
+        
+        <div class="price">
+          Цена <span> 8850</span> грн.
         </div>
         <div>
-          Цена 8850 грн.
-        </div>
-        <div>
-          <h5>Краткое описание</h5>
+          <h4>Краткое описание</h4>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
             Laboriosam doloribus cum natus aliquam odit perferendis 
             reiciendis autem molestiae enim officiis.<a href="#">Подробнее</a></p>
         </div>
     </div>
-    <div class="col-xs-2 col-sm-2 col-lg-2">
+    <div class="col-2">
       <button class='close_btn'></button>
-      <div>8850 грн.</div>
+      <br>
+      <div class="price"><span> 8850</span> грн.</div>
     </div>
   </div>
   <hr>
@@ -33,23 +39,38 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row text-center">
     <div class="col-xs-0 col-lg-3"></div>
-    <div class="col-lg-3 d-flex">
+    <div class="col-lg-3 d-flex" (click)="openModal(makeOrder)">
       <img src="../../assets/img/img_cart/delivery.png" alt="">
-      <p>Бесплатная доставка</p>
+      <p style="color: #f85969; text-transform: uppercase; font-weight: 700; line-height: 40px; margin: 0; padding-left: px;">Бесплатная доставка</p>
     </div>
-    <div class="col-lg-3">
-        <p>Всего: <span> 8850 </span> грн.</p>
+    <div class="col-lg-3 price">
+        Всего: <span> 8850 </span> грн.
       </div>
     <div class="col-lg-3">
-      <button>Оформить заказ</button>
+      <button class="btn_make-order" (click)="openModal(template)">Оформить заказ</button>
     </div>
   </div>
   
 </div>
 
-
+<ng-template #template>
+  <div class="modal-header text-center">
+    <h4 class="modal-title text-center">Заполните форму</h4>
+    <button type="button" class="close pull-right" style='width: 30px;' aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-right">
+    Имя и фамилия <input type="text" /><br>    
+    Телефон <input type="text" /><br>
+    Город и область <input type="text" /><br>
+    № отделения Новой почты <input type="text" /><br>
+    Комментарий к заказу <textarea></textarea><br>
+   <button type="submit">Оформить заказ</button>
+  </div>
+</ng-template>
 
 
 <!-- <form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="submit_function()">
