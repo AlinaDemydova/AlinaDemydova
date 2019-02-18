@@ -71,7 +71,7 @@ export class AppComponent
     } else {
       this.currentPage = 'main';
     }
-    console.log(this.router.url)
+    //console.log(this.router.url)
   }
  
 }

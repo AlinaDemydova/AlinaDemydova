@@ -20,6 +20,8 @@ export class chooseService {
         return of(ALLBUGGYS.filter(x => x.type === type));
     }
     sortedProducts(type: string): Observable<ProductTemplate[]> {
-        return of(ALLBUGGYS.filter(x => x.type == type));
+        return of(ALLBUGGYS.filter(x => x.type === type));
     }
+
+
 }

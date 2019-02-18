@@ -10,8 +10,14 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./choose-buggy.component.scss']
 })
 export class ChooseBuggyComponent implements OnInit {
-choose : ProductTemplate[];
+//choose : ProductTemplate[];
 choosedBuggy = ALLBUGGYS;
+
+sortByStroller: ProductTemplate[];
+sortByBuggy: ProductTemplate[];
+sortByGirl: ProductTemplate[];
+sortByBoy: ProductTemplate[];
+sortByUnisex: ProductTemplate[];
 
   constructor(
     private chooseService: chooseService

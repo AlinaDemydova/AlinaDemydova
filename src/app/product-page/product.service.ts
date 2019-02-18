@@ -8,11 +8,11 @@ import { ALLBUGGYS } from './mock-product';
 import { SectionPageComponent } from '../section-page/section-page.component';
 import { ACCESSORISE } from '../accessorise-page/mock-accessorise';
 import { AccessoriseTemplate } from '../accessorise-page/accessorise-template';
-import { TECHBUGGYXS } from '../product-page/mock-tech-product';
 
 @Injectable({providedIn: 'root'})
 export class productService {
-techBuggyXs = TECHBUGGYXS;
+// techBuggyXs = TECHBUGGYXS;
+currentBuggy: ProductTemplate;
   constuctor(){}
 
   getProduct(id: number): Observable<ProductTemplate> {
@@ -20,8 +20,26 @@ techBuggyXs = TECHBUGGYXS;
     return of(ALLBUGGYS.find(x => x.id === id));   
   }
 
-  getAccessorise(): Observable<AccessoriseTemplate[]> {
+  getAccessoriseXS(): Observable<AccessoriseTemplate[]> {
     return of(ACCESSORISE.filter(x=> x.forBuggyXs));
   }
+  getAccessoriseHarvey(): Observable<AccessoriseTemplate[]> {
+    return of(ACCESSORISE.filter(x=> x.forHarvey));
+  }
+  getAccessoriseBuggyMini(): Observable<AccessoriseTemplate[]> {
+    return of(ACCESSORISE.filter(x=> x.forBuggyMini));
+  }
+  getAccessoriseCharley(): Observable<AccessoriseTemplate[]> {
+    return of(ACCESSORISE.filter(x=> x.forCharleyMini));
+  }
+  
+  // getAccessoriseForAll(): Observable<AccessoriseTemplate[]> {
+  //   if (this.currentBuggy.sectionId == 1) {
+  //     return of(ACCESSORISE.filter(x=> x.forBuggyXs));
+  //   } else {
+  //     return of(ACCESSORISE.filter(x=> x.forHarvey));
+  //   }
+    
+  // }
 
 }

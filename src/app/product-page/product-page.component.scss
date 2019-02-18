@@ -56,7 +56,7 @@ h1 {
 }
 .mock_product {
     padding: 0;
-    margin: 0;
+    // margin: 0;
     border-bottom: 2px solid $mainColorRed;
     border-left: 2px solid $mainColorRed;
     border-right: 2px solid $mainColorRed;
@@ -72,7 +72,7 @@ h1 {
     text-align: center;
 }
 .nav-item {
-    width: 33.333%;
+    width: 33%;
     a {
         color: black;
         text-transform: uppercase;
@@ -87,6 +87,26 @@ h1 {
 }
 #home, #profile {
     padding: 20px 20px 20px 30px;
+}
+.table {
+    width: 100%;
+    margin-bottom: 0;
+    td {
+        border-bottom: 2px solid $mainColorRed;
+    }
+    .tr {
+        height: 50px;
+        td:first-child {
+            border-right: 2px solid $mainColorRed;
+            
+        }
+        td p {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+        
+    }
+    
 }
 
 .jcarousel img {
