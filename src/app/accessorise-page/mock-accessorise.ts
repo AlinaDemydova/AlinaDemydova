@@ -40,10 +40,10 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     price: 540,
     forHarvey: false,
     forCharley: false,
-    forCharleyMini: true,
+    forCharleyMini: false,
     forBuggyXs: false,
     forBuggyEw: false,
-    forBuggyMini: false
+    forBuggyMini: true
 },
     {id: 2005,
     h1: 'Москитная сетка белого цвета для люльки',
@@ -105,8 +105,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     img: '../../assets/img/img_accessorise/organizer.jpg',
     price: 840,
     forHarvey: true,
-    forCharley: false,
-    forCharleyMini: false,
+    forCharley: true,
+    forCharleyMini: true,
     forBuggyXs: false,
     forBuggyEw: false,
     forBuggyMini: false

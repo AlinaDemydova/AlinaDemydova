@@ -1,14 +1,14 @@
 <div class="container-fluid d-flex container_padding">
   <div class="checkBox">
-    <input type='checkbox' [(ngModel)]="sortByStroller">Коляски 2в1
+    <input type='checkbox' [(ngModel)]="sortByStroller" (change)="sortedProducts(sortByStroller)">Коляски 2в1
     <br>
-    <input type='checkbox' [(ngModel)]="sortByBuggy">Прогулочные коляски
+    <input type='checkbox' [(ngModel)]="sortByBuggy" (change)="sortedProducts(sortByBuggy)">Прогулочные коляски
     <hr>
-    <input type='checkbox' [(ngModel)]="sortByGirl">Для девочек
+    <input type='checkbox' [(ngModel)]="sortByGirl" (change)="sortedProducts(sortByGirl)">Для девочек
     <br>
-    <input type='checkbox' [(ngModel)]="sortByBoy">Для мальчиков
+    <input type='checkbox' [(ngModel)]="sortByBoy" (change)="sortedProducts(sortByBoy)">Для мальчиков
     <br>
-    <input type='checkbox' [(ngModel)]="sortByUnisex">Унисекс
+    <input type='checkbox' [(ngModel)]="sortByUnisex" (change)="sortedProducts(sortByUnisex)">Унисекс
   </div>
   <div class="container">
       <div class="row text-center justify-content-center">
