@@ -4,7 +4,9 @@ import { productService } from './product.service';
 import { ProductTemplate } from './product-template';
 import { ALLBUGGYS } from './mock-product';
 import { ACCESSORISE } from '../accessorise-page/mock-accessorise';
+import { Location } from '@angular/common';
 import { AccessoriseTemplate } from '../accessorise-page/accessorise-template';
+import { CartPageComponent } from '../cart-page/cart-page.component';
 
 @Component({
   selector: 'app-product-page',
@@ -34,6 +36,15 @@ currentBuggy: ProductTemplate;
     const id = idParam ? +idParam : +this.route.snapshot.paramMap.get('id');
     this.productService.getProduct(id).subscribe(product => this.currentBuggy = product);
   }
+
+  addToCart() {
+    let str = JSON.stringify(this.currentBuggy);//Превращаем в строку (сериализуем его
+    localStorage.setItem('obj', str);//Запишем в localStorage с ключом obj:
+    console.log(localStorage);
+    location.replace('cart');
+    console.log(localStorage);
+  }
+  
   // getAccessorise(): void {
   //   // const id = idParam ? +idParam : +this.route.snapshot.paramMap.get('id');
   //   // console.log(id);

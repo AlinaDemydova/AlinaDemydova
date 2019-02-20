@@ -8,6 +8,7 @@ import { SectionTemplate } from './section-page/section-template';
 import { SectionPageComponent } from './section-page/section-page.component';
 import { sectionService } from './section-page/section.service';
 import { AppService } from './app.service';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-root',

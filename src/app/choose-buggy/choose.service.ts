@@ -21,21 +21,21 @@ export class chooseService {
     //     return of(ALLBUGGYS.filter(x => x.type === type));
     // }
 
-    sortedByStroller(type: string): Observable<ProductTemplate[]> {
-        return of(ALLBUGGYS.filter(x => x.type === 'stroller'));
-    }
-    sortedByBuggy(type: string): Observable<ProductTemplate[]> {
-        return of(ALLBUGGYS.filter(x => x.type === 'buggy'));
-    }
-    sortedByGirl(type: string): Observable<ProductTemplate[]> {
-        return of(ALLBUGGYS.filter(x => x.sex === 'girl'));
-    }
-    sortedByBoy(type: string): Observable<ProductTemplate[]> {
-        return of(ALLBUGGYS.filter(x => x.sex === 'boy'));
-    }
-    sortedByUnisex(type: string): Observable<ProductTemplate[]> {
-        return of(ALLBUGGYS.filter(x => x.sex === 'all'));
-    }
+    // sortedByStroller(type: string): Observable<ProductTemplate[]> {
+    //     return of(ALLBUGGYS.filter(x => x.type === 'stroller'));
+    // }
+    // sortedByBuggy(type: string): Observable<ProductTemplate[]> {
+    //     return of(ALLBUGGYS.filter(x => x.type === 'buggy'));
+    // }
+    // sortedByGirl(type: any): Observable<ProductTemplate[]> {
+    //     return of(ALLBUGGYS.filter(x => x.sex === 'girl'));
+    // }
+    // sortedByBoy(type: string): Observable<ProductTemplate[]> {
+    //     return of(ALLBUGGYS.filter(x => x.sex === 'boy'));
+    // }
+    // sortedByUnisex(type: string): Observable<ProductTemplate[]> {
+    //     return of(ALLBUGGYS.filter(x => x.sex === 'all'));
+    // }
     
 
 }

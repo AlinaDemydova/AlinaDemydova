@@ -15,6 +15,8 @@ import { ModalCallComponent } from './modal-call/modal-call.component';
 import { AccessorisePageComponent } from './accessorise-page/accessorise-page.component';
 import { ChooseBuggyComponent } from './choose-buggy/choose-buggy.component';
 
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import { ChooseBuggyComponent } from './choose-buggy/choose-buggy.component';
     ReactiveFormsModule,
     ModalModule.forRoot(),
     CarouselModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   providers: [
     // Messages

@@ -3,6 +3,7 @@ import { ALLBUGGYS } from '../product-page/mock-product';
 import { ProductTemplate } from '../product-page/product-template';
 import { chooseService } from '../choose-buggy/choose.service';
 import { FormsModule, NgModel } from '@angular/forms';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-choose-buggy',
@@ -10,79 +11,38 @@ import { FormsModule, NgModel } from '@angular/forms';
   styleUrls: ['./choose-buggy.component.scss']
 })
 export class ChooseBuggyComponent implements OnInit {
-//choose : ProductTemplate[];
 choosedBuggy = ALLBUGGYS;
+sortedBuggy: ProductTemplate[];
 
-sortByStroller: string;
-sortByBuggy: string;
-sortByGirl: string;
-sortByBoy: string;
-sortByUnisex: string;
-sort: any;
+sortByStroller: boolean;
+sortByBuggy: boolean;
+sortByGirl: boolean;
+sortByBoy: boolean;
+sortByUnisex: boolean;
 
   constructor(
     private chooseService: chooseService
   ) { }
 
   ngOnInit() {
-    this.sortedProducts();
-
-    // запуск sortedProducts() по кожному кліку на чекбокс
+    // this.sortedProducts();
   }
 
   sortedProducts() {
-     if(this.sortByStroller && !this.sortByBuggy) {
-       if(!this.sortByGirl || !this.sortByBoy || !this.sortByUnisex) {
-        this.chooseService.sortedByStroller(this.sortByStroller).subscribe(choosedBuggy => this.choosedBuggy = choosedBuggy);
-       }
-      if(this.sortByGirl || this.sortByBoy || this.sortByUnisex) {
-        if(this.sortByGirl && !this.sortByBoy && !this.sortByUnisex) {
-          this.sort = this.chooseService.sortedByStroller(this.sortByStroller).subscribe(choosedBuggy => this.choosedBuggy = choosedBuggy);//сортування по типу stroller
-          this.chooseService.sortedByGirl(this.sort).subscribe(choosedBuggy => this.choosedBuggy = choosedBuggy); //сортування по статі girl
-        }
-      }
-    } else if(!this.sortByStroller && this.sortByBuggy) {
-      this.chooseService.sortedByBuggy(this.sortByBuggy).subscribe(choosedBuggy => this.choosedBuggy = choosedBuggy);
-    }
+    const stroller = this.sortByStroller ? 'stroller' : null;
+    const buggy = this.sortByBuggy ? 'buggy' : null;
+    const boy = this.sortByBoy ? 'boy' : null;
+    const girl = this.sortByGirl ? 'girl' : null;
+    const all = this.sortByUnisex ? 'all' : null;
 
-    // else {
-    //   this.chooseService.getStroller().subscribe(choosedBuggy => this.choosedBuggy = choosedBuggy);
-    // }
+    if(stroller || buggy){
+      this.choosedBuggy = ALLBUGGYS.filter(x=> x.type === stroller || x.type === buggy);
+    } else {
+      this.choosedBuggy = ALLBUGGYS;
+    }
+    if(boy || girl || all){
+      this.choosedBuggy = this.choosedBuggy.filter(x=> x.sex === girl || x.sex === boy || x.sex === all);
+    }
+   }
 
   }
-  // sortedByStroller()
-  // sortedByBuggy()
-
-}
-
-// Якщо stroller==true, то сортування по 
-
-// if (stroller == checked) {
-//   listStroller = список, відсортований по типу "stroller";
-//     if(boy==checked || girl==checked || all==checked) {
-//       if(boy==checked) {
-//         return listStroller, відсортований по типу "boy"
-//       } else if (girl==checked) {
-//         return listStroller, відсортований по типу "girl"
-//       } else if (all==checked) {
-//         return listStroller, відсортований по типу "all"
-//       } else if (boy==checked && girl==checked) {
-//         return listStroller, відсортований по типу "boy" і "girl"
-//       } else if (girl==checked && all==checked) {
-//         return listStroller, відсортований по типу "girl" і "all"
-//       } else if (boy==checked && all==checked) {
-//         return listStroller, відсортований по типу "boy" і "all"
-//       } else if (boy==checked && girl==checked && all==checked) {
-//         return список, відсортований по "stroller";
-//       }
-//     } else {
-//       return список, відсортований по "stroller";
-//     }
-
-// } else if (buggy == checked) {
-
-// } else if (stroller == checked && buggy == checked) {
-//   return весь список;
-// } else {
-//   document.write('Виберіть параметри для сотрування');
-// } 
