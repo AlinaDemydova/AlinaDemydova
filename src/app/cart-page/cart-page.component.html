@@ -5,19 +5,23 @@
   </div>
   
 	<div *ngFor="let itemInCart of productsInCart" class="container itemInCart">
-		<div class="row">
-			<div class="col-xs-12 col-sm-4" style="max-width: 200px;"><img alt="" src=
-			"{{itemInCart.img1}}"></div>
-			<div class="col-xs-10 col-sm-6">
+			<div class="row">
+				<div class="col-xs-12 col-sm-3 text-center"><img alt="" style="max-width: 200px; margin: auto;" src=
+				"{{itemInCart.img1}}">
+			</div>
+			<div class="col-xs-10 col-sm-7">
 				<div class="d-flex">
 					<h3>{{itemInCart.h1}}</h3>
-					<div>
-						<button class="minus_btn"></button> <input min="1" name="quantity" type=
-						"text"> <button class="plus_btn"></button>
+					<div class="d-flex">
+						<button class="minus_btn"></button> 
+						<input min="1" name="quantity" id='input' type="text" 
+						class="text-center" [(ngModel)]='quantity' 
+						(ngModelChange)="calculateTotal($event)">
+						<button class="plus_btn" (click)='plusOneItem()'></button>
 					</div>
 				</div>
 				<div class="price">
-					Цена <span>{{itemInCart.price}}</span> грн.
+					Цена <span [(ngModel)]='itemInCart.price'>{{itemInCart.price}}</span> грн.
 				</div>
 				<div>
 					<h4>Краткое описание</h4>
@@ -29,7 +33,7 @@
 			<div class="col-2">
 				<button class='close_btn' (click)='deleteProduct()'></button><br>
 				<div class="price">
-					<span>8850</span> грн.
+					<span>{{total}}</span> грн.
 				</div>
 			</div>
 		</div>
@@ -49,15 +53,18 @@
 				Всего: <span>8850</span> грн.
 			</div>
 			<div class="col-lg-3">
-        <button class="btn_make-order" (click)='makeOrder()'>Оформить заказ</button> 
+        <button class="btn_make-order" (click)='openModal(template)'>Оформить заказ</button> 
         <button (click)='clearCart()'>Очистить корзину</button>
-				<!-- <button class="btn_make-order" (click)="openModal(template)">Оформить заказ</button> -->
 			</div>
 		</div>
 	</div>
+
+<!--=========ModalWindow=========-->
+	<ng-template #template>
 	<div class="modal-header text-center">
-		<h4 class="modal-title text-center">Заполните форму</h4><button aria-label=
-		"Close" class="close pull-right" style='width: 30px;' type=
+		<h4 class="modal-title text-center">Заполните форму</h4>
+		<button aria-label=
+		"Close" class="close pull-right" style='width: 30px; height: 30px; margin: 0;' type=
 		"button"><span aria-hidden="true">&times;</span></button>
 	</div>
 	<div class="modal-body text-right">
@@ -67,26 +74,11 @@
 		№ отделения Новой почты <input type="text"><br>
 		Комментарий к заказу 
 		<textarea></textarea><br>
-		<button type="submit">Оформить заказ</button> <!-- <form>
-    <div class="form-group">
-      <label for="option">Имя и фамилия</label>
-      <input type="text" id="option" placeholder="Введите имя и фамилию" class="form-control">
-      <br>
-      <label for="option">Телефон</label>
-      <input type="text" id="option" placeholder="Введите имя и фамилию" class="form-control">
-      <br>
-      <label for="option">Город и область</label>
-      <input type="text" id="option" placeholder="Введите имя и фамилию" class="form-control">
-      <br>
-      <label for="option">№ отделения Новой почты</label>
-      <input type="text" id="option" placeholder="Введите имя и фамилию" class="form-control">
-      <br>
-      <label for="option">Комментарий к заказу</label>
-      <textarea type="text" id="option" placeholder="Введите имя и фамилию" class="form-control">
-      <button type="button">Оформить заказ</button>
-    </div>
-    </form> -->
-	</div><!-- <form (submit)="addOrder(name.value)">
+		<button type="submit">Оформить заказ</button> 
+	</div>
+</ng-template>
+<!--=========/ModalWindow=========-->
+	<!-- <form (submit)="addOrder(name.value)">
     <div class="form-group">
       <label for="option">Имя и фамилия</label>
       <input type="text" id="option" #name placeholder="Введите имя и фамилию" class="form-control">

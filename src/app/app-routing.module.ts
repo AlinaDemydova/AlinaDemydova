@@ -7,6 +7,7 @@ import { SectionPageComponent } from './section-page/section-page.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { AccessorisePageComponent } from './accessorise-page/accessorise-page.component';
 import { ChooseBuggyComponent } from './choose-buggy/choose-buggy.component';
+import { CompareComponent } from './compare/compare.component';
 
 const routes: Routes = [
   { path: 'cart', component: CartPageComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'section/:id', component: SectionPageComponent },
   { path: 'product/:id', component: ProductPageComponent },
   { path: 'accessorise', component: AccessorisePageComponent },
-  { path: 'choose', component: ChooseBuggyComponent }
+  { path: 'choose', component: ChooseBuggyComponent },
+  { path:'compare', component: CompareComponent }
   // { path: 'accessorise/:id'}
 ];
 

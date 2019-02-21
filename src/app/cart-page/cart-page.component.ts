@@ -19,18 +19,10 @@ export class CartPageComponent implements OnInit {
   public loginForm: FormGroup;
 
   productsInCart = ALLBUGGYS;
-  sum = 0;
+  total: number;
+  arr: ProductTemplate[];
+  quantity = 1;
   
-  // USER: {
-  //   name: string;
-  //   sname: string;
-  //  onLesson: boolean;
-  // } = {
-  //  name: 'o',
-  //  sname: 'B',
-  //  onLesson: true
-  // }
-
   constructor(private formBuilder: FormBuilder,
     private modalService: BsModalService,
     private route: ActivatedRoute,
@@ -40,35 +32,31 @@ export class CartPageComponent implements OnInit {
   ngOnInit() {
 
     this.productsInCart.push(JSON.parse(localStorage.getItem('obj')));
-console.log(this.productsInCart);
+    console.log(this.productsInCart);
 
-    // if (!this.loginForm) {
-    //   this.loginForm = this.formBuilder.group({
-    //     'UserName': new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(5)]),
-    //     'Password': new FormControl('', [Validators.required])
-    //   });
-    // }
-
+  }
+  plusOneItem() {
+    console.log(this.quantity);
+    this.quantity += 1;
+    this.calculateTotal();
+  }
+  calculateTotal(){
+   // this.total = this.quantity*this.productsInCart.price; //NaN
+    this.productsInCart.map(x=> this.total += x.price * this.quantity);
+    
   }
   deleteProduct(itemInCart){
     // this.productsInCart = this.productsInCart.filter(x => x != itemInCart)
     localStorage.removeItem('obj');
   }
-  calculateTotal(){
-    this.sum = 0;
-    //this.productsInCart.map(x=> this.sum += x.price * x.quantity); // change to reduce
-    // this.total += this.arr.reduce(x => 0 + x.price * x.quantity);
-  }
-  makeOrder(){
-    //location.replace('order');
-  }
+  // makeOrder(){
+  //   //location.replace('order');
+  // }
   // clearCart() {
   //   this.productsInCart = localStorage.clear();
   // }
 
-  // submit_function() {
-  //   alert(this.USER);
-  // }
+ 
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);

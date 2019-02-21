@@ -16,6 +16,7 @@ import { AccessorisePageComponent } from './accessorise-page/accessorise-page.co
 import { ChooseBuggyComponent } from './choose-buggy/choose-buggy.component';
 
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { CompareComponent } from './compare/compare.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     CartPageComponent,
     ModalCallComponent,
     AccessorisePageComponent,
-    ChooseBuggyComponent
+    ChooseBuggyComponent,
+    CompareComponent
   ],
   imports: [
     BrowserModule,
