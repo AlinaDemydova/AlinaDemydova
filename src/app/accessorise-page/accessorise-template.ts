@@ -10,4 +10,6 @@ export class AccessoriseTemplate {
     forBuggyXs?: boolean;
     forBuggyEw?: boolean;
     forBuggyMini?: boolean;
+    quantity: number;
+    totalItem?: number;
 }

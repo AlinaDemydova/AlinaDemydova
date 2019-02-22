@@ -10,7 +10,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: true,
     forBuggyXs: true,
     forBuggyEw: true,
-    forBuggyMini: true
+    forBuggyMini: true,
+    quantity: 1
 },
     {id: 2002,
     h1: 'Подстаканник оригинальный Easy Walker',
@@ -21,7 +22,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: true,
     forBuggyXs: true,
     forBuggyEw: true,
-    forBuggyMini: true
+    forBuggyMini: true,
+    quantity: 1
 },
     {id: 2003,
     h1: '2в1: подстаканник + держатель для снеков',
@@ -32,7 +34,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: true,
     forBuggyXs: true,
     forBuggyEw: true,
-    forBuggyMini: true
+    forBuggyMini: true,
+    quantity: 1
 },
     {id: 2004,
     h1: 'Москитная сетка для линейки MINI buggy',
@@ -43,7 +46,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: false,
     forBuggyXs: false,
     forBuggyEw: false,
-    forBuggyMini: true
+    forBuggyMini: true,
+    quantity: 1
 },
     {id: 2005,
     h1: 'Москитная сетка белого цвета для люльки',
@@ -54,7 +58,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: true,
     forBuggyXs: false,
     forBuggyEw: false,
-    forBuggyMini: false
+    forBuggyMini: false,
+    quantity: 1
 },
     {id: 2006,
     h1: 'Москитная сетка для линейки XS Buggy',
@@ -65,7 +70,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: false,
     forBuggyXs: true,
     forBuggyEw: false,
-    forBuggyMini: false
+    forBuggyMini: false,
+    quantity: 1
 },
     {id: 2007,
     h1: 'Сумка для переноски EW Buggy XS',
@@ -76,7 +82,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: false,
     forBuggyXs: true,
     forBuggyEw: false,
-    forBuggyMini: false
+    forBuggyMini: false,
+    quantity: 1
 },
     {id: 2008,
     h1: 'Сумка для переноски Easywalker',
@@ -87,7 +94,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: false,
     forBuggyXs: false,
     forBuggyEw: true,
-    forBuggyMini: true
+    forBuggyMini: true,
+    quantity: 1
 },
     {id: 2009,
     h1: 'Увеличительный блок для линейки Harvey',
@@ -98,7 +106,8 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: false,
     forBuggyXs: false,
     forBuggyEw: false,
-    forBuggyMini: false
+    forBuggyMini: false,
+    quantity: 1
 },
     {id: 2010,
     h1: 'Органайзер оригинальный Easy Walker',
@@ -109,6 +118,7 @@ export const ACCESSORISE: AccessoriseTemplate[] = [
     forCharleyMini: true,
     forBuggyXs: false,
     forBuggyEw: false,
-    forBuggyMini: false
+    forBuggyMini: false,
+    quantity: 1
 }
 ]

@@ -6,6 +6,7 @@ import { ALLBUGGYS } from '../product-page/mock-product';
 import { stringify } from '@angular/core/src/render3/util';
 import { ProductPageComponent } from '../product-page/product-page.component';
 import { ProductTemplate } from '../product-page/product-template';
+import { productService } from '../product-page/product.service';
 // import { Location } from '@angular/common';
 
 @Component({
@@ -18,45 +19,60 @@ export class CartPageComponent implements OnInit {
   modalRef: BsModalRef;
   public loginForm: FormGroup;
 
-  productsInCart = ALLBUGGYS;
+  productsInCart: ProductTemplate[];
+  firstTotal: number;
   total: number;
-  arr: ProductTemplate[];
-  quantity = 1;
-  
+   
   constructor(private formBuilder: FormBuilder,
+    private _productService: productService,
     private modalService: BsModalService,
     private route: ActivatedRoute,
     private router: Router
     ) {}
 
   ngOnInit() {
-
-    this.productsInCart.push(JSON.parse(localStorage.getItem('obj')));
-    console.log(this.productsInCart);
-
-  }
-  plusOneItem() {
-    console.log(this.quantity);
-    this.quantity += 1;
+    this.productsInCart = JSON.parse(localStorage.getItem('obj'));
     this.calculateTotal();
+
+    this.productsInCart.forEach(x=> {
+      x.totalItem = x.price * x.quantity;
+    });// винестив окрему функцію
   }
+
   calculateTotal(){
-   // this.total = this.quantity*this.productsInCart.price; //NaN
-    this.productsInCart.map(x=> this.total += x.price * this.quantity);
-    
+    this.total = 0;
+
+    this.productsInCart.map(x=>{ this.total += x.price * x.quantity;
+    console.log(x.price, x.quantity, this.total)});
   }
-  deleteProduct(itemInCart){
+
+  calculateTotalItem(id: number){
+    const result = this.productsInCart.find(x=> x.id === id);
+    if(result){
+      result.totalItem = result.price * result.quantity;
+     // this.quantity = result.quantity;
+    } 
+    //localStorage.setItem()this.productsInCart
+    this._productService.cartSubject.next(true);
+  }
+
+  deleteProduct(id: number){
     // this.productsInCart = this.productsInCart.filter(x => x != itemInCart)
-    localStorage.removeItem('obj');
+    this.productsInCart = JSON.parse(localStorage.getItem('obj'));
+    this.productsInCart = this.productsInCart.filter(x=> x.id !== id);
+
+    localStorage.setItem('obj', JSON.stringify(this.productsInCart));
+    this._productService.cartSubject.next(true);
+    this.total = 0;
+    //this.calculateTotal();
   }
+
   // makeOrder(){
-  //   //location.replace('order');
+  //   //this.router.navigateByUrl('/order');
   // }
   // clearCart() {
   //   this.productsInCart = localStorage.clear();
   // }
-
- 
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);

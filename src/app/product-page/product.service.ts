@@ -1,7 +1,7 @@
 
 
 import { Injectable } from "@angular/core";
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ProductTemplate } from './product-template';
 import { ALLBUGGYS } from './mock-product';
@@ -13,6 +13,12 @@ import { AccessoriseTemplate } from '../accessorise-page/accessorise-template';
 export class productService {
 // techBuggyXs = TECHBUGGYXS;
 currentBuggy: ProductTemplate;
+
+checkBuggy: boolean;
+stroller: boolean;
+
+cartSubject = new Subject<boolean>();
+
   constuctor(){}
 
   getProduct(id: number): Observable<ProductTemplate> {

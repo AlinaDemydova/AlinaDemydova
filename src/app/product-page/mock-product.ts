@@ -25,7 +25,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.' 
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 102,
     sectionId: 1,
@@ -51,7 +52,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.' 
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 103,
     sectionId: 1,
@@ -77,7 +79,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.' 
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 201,
     sectionId: 2,
@@ -103,7 +106,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 202,
     sectionId: 2,
@@ -129,7 +133,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 203,
     sectionId: 2,
@@ -155,7 +160,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 204,
     sectionId: 2,
@@ -181,7 +187,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 301,
     sectionId: 3,
@@ -207,7 +214,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 302,
     sectionId: 3,
@@ -233,7 +241,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 401,
     sectionId: 4,
@@ -259,7 +268,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
 
     {id: 402,
@@ -286,7 +296,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
 
 {id: 403,
@@ -313,7 +324,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     removableSoftParts: 'Да',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 501,
     sectionId: 5,
@@ -338,7 +350,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     foldingType: 'Книжка',
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 502,
     sectionId: 5,
@@ -363,7 +376,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     foldingType: 'Книжка',
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 503,
     sectionId: 5,
@@ -388,7 +402,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     foldingType: 'Книжка',
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 601,
     sectionId: 6,
@@ -413,7 +428,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     foldingType: 'Книжка',
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 602,
     sectionId: 6,
@@ -438,7 +454,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     foldingType: 'Книжка',
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1
 },
     {id: 603,
     sectionId: 6,
@@ -463,7 +480,8 @@ export const ALLBUGGYS: ProductTemplate[] = [
     foldingType: 'Книжка',
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
-    basketForThings: 'Да, до 5 кг.'
+    basketForThings: 'Да, до 5 кг.',
+    quantity: 1,
 },
 ]
 

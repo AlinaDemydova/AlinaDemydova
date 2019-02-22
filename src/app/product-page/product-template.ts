@@ -24,6 +24,8 @@ export class ProductTemplate {
     seatBelts?: string;
     removableSoftParts?: string;
     basketForThings?: string;
+    quantity: number;
+    totalItem?: number;
 }
 
 // export class ProductTechTemplate {

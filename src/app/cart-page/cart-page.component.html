@@ -13,15 +13,13 @@
 				<div class="d-flex">
 					<h3>{{itemInCart.h1}}</h3>
 					<div class="d-flex">
-						<button class="minus_btn"></button> 
-						<input min="1" name="quantity" id='input' type="text" 
-						class="text-center" [(ngModel)]='quantity' 
-						(ngModelChange)="calculateTotal($event)">
-						<button class="plus_btn" (click)='plusOneItem()'></button>
+						<!-- <button class="minus_btn"></button>  -->
+						<input min="1"  type="number"	class="text-center" [(ngModel)]='itemInCart.quantity' (ngModelChange)="calculateTotal($event); calculateTotalItem(itemInCart.id)">
+						<!-- <button class="plus_btn" (click)='plusOneItem()'></button> -->
 					</div>
 				</div>
 				<div class="price">
-					Цена <span [(ngModel)]='itemInCart.price'>{{itemInCart.price}}</span> грн.
+					Цена <span>{{itemInCart.price}}</span> грн.
 				</div>
 				<div>
 					<h4>Краткое описание</h4>
@@ -31,9 +29,9 @@
 				</div>
 			</div>
 			<div class="col-2">
-				<button class='close_btn' (click)='deleteProduct()'></button><br>
+				<button class='close_btn' (click)='deleteProduct(itemInCart.id)'></button><br>
 				<div class="price">
-					<span>{{total}}</span> грн.
+					<span *ngIf="itemInCart.totalItem">{{itemInCart.totalItem}} грн.</span>
 				</div>
 			</div>
 		</div>
@@ -50,7 +48,7 @@
 				Бесплатная доставка</p>
 			</div>
 			<div class="col-lg-3 price">
-				Всего: <span>8850</span> грн.
+				Всего: <span>{{total}}</span> грн.
 			</div>
 			<div class="col-lg-3">
         <button class="btn_make-order" (click)='openModal(template)'>Оформить заказ</button> 

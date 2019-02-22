@@ -13,7 +13,7 @@
 				<div class="d-flex price text-center">		
 					<div><span>{{currentBuggy.price}} </span> грн.</div>
 					<div style="width: 120px; margin-right: 0; margin-left: auto;">
-						<button class="btn_buy" (click)='addToCart(this.currentBuggy)'>
+						<button class="btn_buy" (click)='addToCart()'>
 							<img src="../../assets/img/img-product/cart.png" style="margin-right: 10px;">
 							Купить
 						</button>
@@ -24,7 +24,7 @@
 					<li>Оплата при получении</li>
 					<li>Гарантия 12 месяцев</li>
 				</ul>
-				<div style="width: 237px; margin: auto;"><button class="add_to_compare"><img src="../../assets/img/img-product/shape.png" style="margin-right: 10px;">Добавить в сравнение</button></div>
+				<div style="width: 237px; margin: auto;"><button class="add_to_compare" (click)='addToCompare(this.currentBuggy)'><img src="../../assets/img/img-product/shape.png" style="margin-right: 10px;">Добавить в сравнение</button></div>
 			</div>
 		</div>
 	</div>
@@ -106,8 +106,6 @@
 	</div>
 	</div>
 </div>
-
-
 	
 <div class="container container_padding text-center">
 	<h2>С этим товаром обычно покупают</h2>
@@ -115,7 +113,7 @@
 	<div class='text-center container_padding'>
 	  <carousel>
 		
-			<slide *ngFor='let slide of accessorises'>
+			<slide *ngFor='let slide of accessorisess'>
 				<div><img src="{{slide.img}}" alt="first slide" style="max-width: 200px;"></div>
 				<div>{{slide.h1}}</div>
 				<div><b>{{slide.price}} грн.</b></div>

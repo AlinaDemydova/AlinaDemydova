@@ -9,6 +9,7 @@ import { SectionPageComponent } from './section-page/section-page.component';
 import { sectionService } from './section-page/section.service';
 import { AppService } from './app.service';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { productService } from './product-page/product.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,9 @@ export class AppComponent
   buggySection = SECTION;
   strollerSection = SECTION;
   modalRef: BsModalRef;
-  sections: SectionTemplate;  
+  sections: SectionTemplate; 
+  
+  totalChart: number;
 
   currentPage: string;
   
@@ -32,6 +35,7 @@ export class AppComponent
     private location: Location,
     private modalService: BsModalService,
     private sectionService: sectionService,
+    private _productService: productService,
     private AppService: AppService,) { }
 
     ngOnInit(): void {
@@ -39,11 +43,16 @@ export class AppComponent
       this.getSectionStroller();
       // this.getActive();
       // this.route.params.subscribe((params) => {console.log(params['id'])});
-
-
       this.activeMenu();
       this.router.events.subscribe((val) => { this.activeMenu() });
     }
+
+  // cal(){
+  //   const arr = localStorage.getItem
+  //   this.totalChart = 0;
+  //   arr.forEach(x=> this.totalChart += x.quantity)
+  // }
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
