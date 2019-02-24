@@ -20,8 +20,15 @@ button {
     font-weight: 700;
     border-radius: 5px;
 }
-button:disabled {
-    background-color: grey;
+
+.go_to_compare {
+    display: none;
+    padding-left: 10px;
+}
+.button_go_to_compare_visible {
+    margin-top: 5px;
+    background-color: #81a881;
+    display: flex;
 }
 .container_padding {
     padding: 30px;
@@ -46,7 +53,7 @@ h1 {
 .btn_buy {
     width: 120px;
 }
-.add_to_compare {
+.add_to_compare, .go_to_compare {
     width: 237px;   
 }
 .price {

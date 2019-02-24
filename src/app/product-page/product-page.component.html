@@ -24,7 +24,13 @@
 					<li>Оплата при получении</li>
 					<li>Гарантия 12 месяцев</li>
 				</ul>
-		<div style="width: 237px; margin: auto;"><button class="add_to_compare" (click)='addToCompare(this.currentBuggy)' ng-disabled="this.buttonDisabled == true"><img src="../../assets/img/img-product/shape.png" style="margin-right: 10px;">Добавить в сравнение</button></div>
+		<div class="text-center" style="width: 237px; margin: auto;">
+			<button class="add_to_compare" (click)='addToCompare(this.currentBuggy)'>
+				<img src="../../assets/img/img-product/shape.png" style="margin-right: 10px;">Добавить в сравнение
+			</button>
+			<button routerLink='/compare' class="go_to_compare" [class.button_go_to_compare_visible]="this.isItInCompare !== false">Перейти к сравнению</button>
+			<!-- <button routerLink='/compare' class="go_to_compare" [class.button_go_to_compare_visible]="this.isItInCompare !== false && currentBuggy.id === this.isItInCompare.id">Перейти к сравнению</button> -->
+		</div>
 			</div>
 		</div>
 	</div>

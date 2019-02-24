@@ -24,9 +24,7 @@ export class AppComponent
   strollerSection = SECTION;
   modalRef: BsModalRef;
   sections: SectionTemplate; 
-  
   totalChart: number;
-
   currentPage: string;
   
   constructor(

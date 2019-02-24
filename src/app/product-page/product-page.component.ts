@@ -18,7 +18,7 @@ export class ProductPageComponent implements OnInit {
 
 accessorises = ACCESSORISE;
 currentBuggy: ProductTemplate;
-buttonDisabled: boolean;
+isItInCompare: boolean;
 
   constructor(
     private _productService: productService,
@@ -27,7 +27,6 @@ buttonDisabled: boolean;
   ) { }
 
   ngOnInit(): void {
-    this.buttonDisabled = false;
     this.getProduct();
     this.getAccessorise();
     //localStorage.clear();
@@ -54,16 +53,23 @@ buttonDisabled: boolean;
     // console.log(localStorage.getItem('obj'));
   }
   addToCompare() {
-    const arrCompare = JSON.parse(localStorage.getItem('objToCompare'));
-    if(arrCompare) {
-      arrCompare.push(this.currentBuggy);
-      localStorage.setItem('objToCompare', JSON.stringify(arrCompare));
+    const arrCompare = JSON.parse(localStorage.getItem('objToCompare'));//array
+    this.isItInCompare = arrCompare.find(x => x.id === this.currentBuggy.id);
+    if(!this.isItInCompare) {
+      if(arrCompare) {
+        arrCompare.push(this.currentBuggy);
+        localStorage.setItem('objToCompare', JSON.stringify(arrCompare));
+      } else {
+        localStorage.setItem('objToCompare', JSON.stringify([this.currentBuggy]));
+      }
+      this.router.navigateByUrl('/compare');
     } else {
-      localStorage.setItem('objToCompare', JSON.stringify([this.currentBuggy]));
+      alert('Этот товар уже добавлен к сравнению.');
     }
-    this.router.navigateByUrl('/compare');
-    this.buttonDisabled = true;
   }
+
+  
+
   // getAccessorise(): void {
   //   // const id = idParam ? +idParam : +this.route.snapshot.paramMap.get('id');
   //   // console.log(id);
