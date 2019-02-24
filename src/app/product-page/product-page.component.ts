@@ -18,6 +18,7 @@ export class ProductPageComponent implements OnInit {
 
 accessorises = ACCESSORISE;
 currentBuggy: ProductTemplate;
+buttonDisabled: boolean;
 
   constructor(
     private _productService: productService,
@@ -26,6 +27,7 @@ currentBuggy: ProductTemplate;
   ) { }
 
   ngOnInit(): void {
+    this.buttonDisabled = false;
     this.getProduct();
     this.getAccessorise();
     //localStorage.clear();
@@ -40,7 +42,6 @@ currentBuggy: ProductTemplate;
   }
 
   addToCart() {
-   
     const arr = JSON.parse(localStorage.getItem('obj'));
     if(arr) {
       arr.push(this.currentBuggy);
@@ -51,7 +52,6 @@ currentBuggy: ProductTemplate;
     this._productService.cartSubject.next(true);
     this.router.navigateByUrl('/cart');
     // console.log(localStorage.getItem('obj'));
-    
   }
   addToCompare() {
     const arrCompare = JSON.parse(localStorage.getItem('objToCompare'));
@@ -62,6 +62,7 @@ currentBuggy: ProductTemplate;
       localStorage.setItem('objToCompare', JSON.stringify([this.currentBuggy]));
     }
     this.router.navigateByUrl('/compare');
+    this.buttonDisabled = true;
   }
   // getAccessorise(): void {
   //   // const id = idParam ? +idParam : +this.route.snapshot.paramMap.get('id');
