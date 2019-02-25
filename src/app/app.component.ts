@@ -81,6 +81,9 @@ export class AppComponent
     }
     //console.log(this.router.url)
   }
+
+
+
  
 }
 
