@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ALLBUGGYS } from '../product-page/mock-product';
 import { ProductTemplate } from '../product-page/product-template';
-import { chooseService } from '../choose-buggy/choose.service';
-import { productService } from '../product-page/product.service';
+import { ChooseService } from '../choose-buggy/choose.service';
+import { ProductService } from '../product-page/product.service';
 import { FormsModule, NgModel } from '@angular/forms';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { Subscription } from 'rxjs';
@@ -25,12 +25,13 @@ sortByUnisex: boolean;
 buggySubs: Subscription;
 
   constructor(
-    private chooseService: chooseService, private _productService: productService
+    private chooseService: ChooseService, 
+    private productService: ProductService
   ) { }
 
   ngOnInit() {
-    this.sortByBuggy = this._productService.checkBuggy ? true : false; 
-    this.sortByStroller = this._productService.stroller ? true : false;       
+    this.sortByBuggy = this.productService.checkBuggy ? true : false; 
+    this.sortByStroller = this.productService.stroller ? true : false;       
     this.sortedProducts();
   }
 

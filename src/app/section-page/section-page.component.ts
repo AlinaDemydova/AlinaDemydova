@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SectionTemplate } from './section-template';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { sectionService } from './section.service';
+import { SectionService } from './section.service';
 import { SECTION } from './mock-section';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
@@ -19,7 +19,7 @@ export class SectionPageComponent implements OnInit {
   buggys = ALLBUGGYS;
   
   constructor(
-    private sectionService: sectionService,
+    private sectionService: SectionService,
     private route: ActivatedRoute,
     public sanitizer: DomSanitizer
     ) {} 
@@ -46,8 +46,6 @@ export class SectionPageComponent implements OnInit {
 
     getBuggys(modelll?: string): void {
       const models = modelll ? modelll : this.section.model;
-      // console.log(models);
-      // console.log(this.section.model);
       this.sectionService.getBuggys(models).subscribe(buggys => this.buggys = buggys);
     }
 

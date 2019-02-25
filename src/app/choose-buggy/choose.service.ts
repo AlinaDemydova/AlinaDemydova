@@ -8,7 +8,7 @@ import { ChooseBuggyComponent } from './choose-buggy.component';
 
 @Injectable({providedIn: 'root'})
 
-export class chooseService {
+export class ChooseService {
     // sortByStroller;
     // sortByBuggy;
     // sortByGirl;

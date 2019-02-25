@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, Input } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -6,19 +6,21 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { SECTION } from '../app/section-page/mock-section';
 import { SectionTemplate } from './section-page/section-template';
 import { SectionPageComponent } from './section-page/section-page.component';
-import { sectionService } from './section-page/section.service';
+import { SectionService } from './section-page/section.service';
 import { AppService } from './app.service';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { productService } from './product-page/product.service';
+import { ProductService } from './product-page/product.service';
+import { CartPageComponent } from './cart-page/cart-page.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent 
 // implements OnInit 
 {
+  @Input() countQuantitySum: number;
   title = 'NewProjectEasywalker';
   buggySection = SECTION;
   strollerSection = SECTION;
@@ -32,33 +34,34 @@ export class AppComponent
     private router: Router,
     private location: Location,
     private modalService: BsModalService,
-    private sectionService: sectionService,
-    private _productService: productService,
-    private AppService: AppService,) { }
+    private sectionService: SectionService,
+    private productService: ProductService,
+    private appService: AppService,) { }
 
     ngOnInit(): void {
       this.getSectionBuggy();
       this.getSectionStroller();
+      this.cal();
       // this.getActive();
       // this.route.params.subscribe((params) => {console.log(params['id'])});
       this.activeMenu();
       this.router.events.subscribe((val) => { this.activeMenu() });
     }
 
-  // cal(){
-  //   const arr = localStorage.getItem
-  //   this.totalChart = 0;
-  //   arr.forEach(x=> this.totalChart += x.quantity)
-  // }
+  cal(){
+    const arr = JSON.parse(localStorage.getItem('obj'));
+    this.totalChart = 0;
+    arr.forEach(x => this.totalChart += x.quantity);
+  }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
   getSectionBuggy(): void {
-    this.AppService.getSectionBuggy().subscribe(buggySection => this.buggySection = buggySection);
+    this.appService.getSectionBuggy().subscribe(buggySection => this.buggySection = buggySection);
   }
   getSectionStroller(): void {
-    this.AppService.getSectionStroller().subscribe(strollerSection => this.strollerSection = strollerSection);
+    this.appService.getSectionStroller().subscribe(strollerSection => this.strollerSection = strollerSection);
   }
 
   activeMenu(): void {

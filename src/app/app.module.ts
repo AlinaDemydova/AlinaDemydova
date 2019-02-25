@@ -11,7 +11,6 @@ import { CartPageComponent } from './cart-page/cart-page.component';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { ModalCallComponent } from './modal-call/modal-call.component';
 import { AccessorisePageComponent } from './accessorise-page/accessorise-page.component';
 import { ChooseBuggyComponent } from './choose-buggy/choose-buggy.component';
 
@@ -25,7 +24,6 @@ import { CompareComponent } from './compare/compare.component';
     SectionPageComponent,
     ProductPageComponent,
     CartPageComponent,
-    ModalCallComponent,
     AccessorisePageComponent,
     ChooseBuggyComponent,
     CompareComponent
@@ -40,6 +38,7 @@ import { CompareComponent } from './compare/compare.component';
     PaginationModule.forRoot()
   ],
   providers: [
+    CartPageComponent
     // Messages
   ],
   bootstrap: [AppComponent]

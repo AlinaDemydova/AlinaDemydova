@@ -6,7 +6,7 @@ import { ChooseBuggyComponent } from '../choose-buggy/choose-buggy.component';
 import { ALLBUGGYS } from '../product-page/mock-product';
 import { ProductTemplate } from '../product-page/product-template';
 import { Routes, RouterModule } from '@angular/router';
-import { productService } from '../product-page/product.service';
+import { ProductService } from '../product-page/product.service';
 // import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -20,7 +20,7 @@ export class MainPageComponent implements OnInit {
   // modalRef: BsModalRef;
   
   constructor(
-    private router: Router, private _productService: productService
+    private router: Router, private productService: ProductService
   ) { }
 
   ngOnInit() {
@@ -31,11 +31,11 @@ export class MainPageComponent implements OnInit {
   // }
   filterBuggy(isStroller: boolean) {
     if(isStroller){
-      this._productService.stroller = true;
-      this._productService.checkBuggy = false;
+      this.productService.stroller = true;
+      this.productService.checkBuggy = false;
     }else{
-      this._productService.checkBuggy = true;
-      this._productService.stroller = false;
+      this.productService.checkBuggy = true;
+      this.productService.stroller = false;
     }
     this.router.navigateByUrl('/choose');
     // location.replace('choose');

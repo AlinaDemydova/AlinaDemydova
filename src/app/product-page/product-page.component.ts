@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { productService } from './product.service';
+import { ProductService } from './product.service';
 import { ProductTemplate } from './product-template';
 import { ALLBUGGYS } from './mock-product';
 import { ACCESSORISE } from '../accessorise-page/mock-accessorise';
@@ -21,7 +21,7 @@ currentBuggy: ProductTemplate;
 isItInCompare: boolean;
 
   constructor(
-    private _productService: productService,
+    private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -37,7 +37,7 @@ isItInCompare: boolean;
 
   getProduct(idParam?: string): void {
     const id = idParam ? +idParam : +this.route.snapshot.paramMap.get('id');
-    this._productService.getProduct(id).subscribe(product => this.currentBuggy = product);
+    this.productService.getProduct(id).subscribe(product => this.currentBuggy = product);
   }
 
   addToCart() {
@@ -48,7 +48,7 @@ isItInCompare: boolean;
     } else {
       localStorage.setItem('obj', JSON.stringify([this.currentBuggy]));
     }
-    this._productService.cartSubject.next(true);
+    this.productService.cartSubject.next(true);
     this.router.navigateByUrl('/cart');
     // console.log(localStorage.getItem('obj'));
   }
@@ -78,15 +78,15 @@ isItInCompare: boolean;
   // }
   getAccessorise(): void {
     if(this.currentBuggy.sectionId == 1 || this.currentBuggy.sectionId == 2 || this.currentBuggy.sectionId == 3) {
-      this._productService.getAccessoriseXS().subscribe(accessorises =>{ this.accessorises = accessorises; });
+      this.productService.getAccessoriseXS().subscribe(accessorises =>{ this.accessorises = accessorises; });
     } else if (this.currentBuggy.sectionId == 4) {
-      this._productService.getAccessoriseBuggyMini().subscribe(accessorises =>{ this.accessorises = accessorises; });
+      this.productService.getAccessoriseBuggyMini().subscribe(accessorises =>{ this.accessorises = accessorises; });
     } else if (this.currentBuggy.sectionId == 5) {
-      this._productService.getAccessoriseHarvey().subscribe(accessorises =>{ this.accessorises = accessorises; });
+      this.productService.getAccessoriseHarvey().subscribe(accessorises =>{ this.accessorises = accessorises; });
     }  else if (this.currentBuggy.sectionId == 6) {
-      this._productService.getAccessoriseCharley().subscribe(accessorises =>{ this.accessorises = accessorises; });
+      this.productService.getAccessoriseCharley().subscribe(accessorises =>{ this.accessorises = accessorises; });
     } else {
-      this._productService.getAccessoriseBuggyMini().subscribe(accessorises =>{ this.accessorises = accessorises; });
+      this.productService.getAccessoriseBuggyMini().subscribe(accessorises =>{ this.accessorises = accessorises; });
     }
   }
   

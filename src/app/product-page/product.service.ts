@@ -10,8 +10,8 @@ import { ACCESSORISE } from '../accessorise-page/mock-accessorise';
 import { AccessoriseTemplate } from '../accessorise-page/accessorise-template';
 
 @Injectable({providedIn: 'root'})
-export class productService {
-// techBuggyXs = TECHBUGGYXS;
+export class ProductService {
+
 currentBuggy: ProductTemplate;
 
 checkBuggy: boolean;

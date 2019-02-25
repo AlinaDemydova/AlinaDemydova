@@ -5,7 +5,7 @@ import { AccessoriseTemplate } from './accessorise-template';
 import { ACCESSORISE } from './mock-accessorise';
  
 @Injectable({providedIn: 'root'})
-export class accessoriseService {
+export class AccessoriseService {
 
   constuctor(){}
 

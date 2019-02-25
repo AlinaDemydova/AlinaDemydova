@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, Input } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -6,7 +6,7 @@ import { ALLBUGGYS } from '../product-page/mock-product';
 import { stringify } from '@angular/core/src/render3/util';
 import { ProductPageComponent } from '../product-page/product-page.component';
 import { ProductTemplate } from '../product-page/product-template';
-import { productService } from '../product-page/product.service';
+import { ProductService } from '../product-page/product.service';
 // import { Location } from '@angular/common';
 
 @Component({
@@ -15,58 +15,70 @@ import { productService } from '../product-page/product.service';
   styleUrls: ['./cart-page.component.scss']
 })
 export class CartPageComponent implements OnInit {
-
+  
   modalRef: BsModalRef;
   public loginForm: FormGroup;
 
   productsInCart: ProductTemplate[];
   firstTotal: number;
   total: number;
+  public countQuantitySum: number;
    
   constructor(private formBuilder: FormBuilder,
-    private _productService: productService,
+    private productService: ProductService,
     private modalService: BsModalService,
     private route: ActivatedRoute,
     private router: Router
     ) {}
 
   ngOnInit() {
-    this.productsInCart = JSON.parse(localStorage.getItem('obj'));
+    this.getItemsFromLocalStorade();
+    this.calculateFirstSum();
     this.calculateTotal();
+    this.countQuantity();
 
-    this.productsInCart.forEach(x=> {
-      x.totalItem = x.price * x.quantity;
-    });// винестив окрему функцію
+  }
+  getItemsFromLocalStorade() {
+    this.productsInCart = JSON.parse(localStorage.getItem('obj'));
+  }
+  calculateFirstSum() {
+  this.productsInCart.forEach(x=> {
+    x.totalItem = x.price * x.quantity;
+  });
+  }
+
+  calculateTotalItem(id: number) {
+    const result = this.productsInCart.find(x=> x.id === id);
+    if(result){
+      result.totalItem = result.price * result.quantity;
+    } 
+    
+    //this.productService.cartSubject.next(true);
   }
 
   calculateTotal(){
     this.total = 0;
-
     this.productsInCart.map(x=>{ this.total += x.price * x.quantity;
     console.log(x.price, x.quantity, this.total)});
+    this.productsInCart.map(x=> x.quantity = x.quantity);
+    this.countQuantity();
   }
-
-  calculateTotalItem(id: number){
-    const result = this.productsInCart.find(x=> x.id === id);
-    if(result){
-      result.totalItem = result.price * result.quantity;
-     // this.quantity = result.quantity;
-    } 
-    //localStorage.setItem()this.productsInCart
-    this._productService.cartSubject.next(true);
-  }
-
   deleteProduct(id: number){
     // this.productsInCart = this.productsInCart.filter(x => x != itemInCart)
     this.productsInCart = JSON.parse(localStorage.getItem('obj'));
     this.productsInCart = this.productsInCart.filter(x=> x.id !== id);
-
     localStorage.setItem('obj', JSON.stringify(this.productsInCart));
-    this._productService.cartSubject.next(true);
-    this.total = 0;
-    //this.calculateTotal();
+    this.productService.cartSubject.next(true);
+    //this.total = 0;
+    this.calculateFirstSum();
+    this.calculateTotal();
   }
 
+  countQuantity() {
+    this.countQuantitySum = 0;
+    this.productsInCart.forEach(x => this.countQuantitySum += x.quantity);
+    }
+ 
   // makeOrder(){
   //   //this.router.navigateByUrl('/order');
   // }

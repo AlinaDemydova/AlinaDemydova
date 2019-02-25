@@ -7,7 +7,7 @@ import { ALLBUGGYS } from '../product-page/mock-product';
 import { ProductTemplate } from '../product-page/product-template';
  
 @Injectable({providedIn: 'root'})
-export class sectionService {
+export class SectionService {
 
   constuctor(){}
 
