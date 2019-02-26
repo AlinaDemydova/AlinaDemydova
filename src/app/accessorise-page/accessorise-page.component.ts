@@ -23,8 +23,8 @@ export class AccessorisePageComponent implements OnInit {
   ngOnInit() {
   }
 
-  // public addToCartAccessorise(): void {
-  //   this.productPageComponent.addToCart();
-  // }
+  public addToCartAccessorise(): void {
+    this.productPageComponent.addToCart();
+  }
   
 }

@@ -18,7 +18,8 @@ export class ProductPageComponent implements OnInit {
 
 accessorises = ACCESSORISE;
 currentBuggy: ProductTemplate;
-isItInCompare: boolean;
+isItInCompare: boolean = false;
+accesorise: AccessoriseTemplate;
 
   constructor(
     private productService: ProductService,
@@ -30,9 +31,7 @@ isItInCompare: boolean;
     this.getProduct();
     this.getAccessorise();
     //localStorage.clear();
-    this.route.params.subscribe(params=> {
-      this.getProduct(params['id']);
-    });
+    this.route.params.subscribe(params=> {this.getProduct(params['id']);});
   }
 
   getProduct(idParam?: string): void {
@@ -40,20 +39,23 @@ isItInCompare: boolean;
     this.productService.getProduct(id).subscribe(product => this.currentBuggy = product);
   }
 
-  addToCart() {
+ public addToCart() {
     const arr = JSON.parse(localStorage.getItem('obj'));
+    
+    this.accesorise = this.accessorises.find(x=> x.id === this.accesorise.id);
+
     if(arr) {
-      arr.push(this.currentBuggy);
+      arr.push(this.currentBuggy || this.accesorise);
       localStorage.setItem('obj', JSON.stringify(arr));
     } else {
-      localStorage.setItem('obj', JSON.stringify([this.currentBuggy]));
+      localStorage.setItem('obj', JSON.stringify([this.currentBuggy] || [this.accesorise]));
     }
     this.productService.cartSubject.next(true);
     this.router.navigateByUrl('/cart');
-    // console.log(localStorage.getItem('obj'));
   }
+
   addToCompare() {
-    const arrCompare = JSON.parse(localStorage.getItem('objToCompare'));//array
+    const arrCompare = JSON.parse(localStorage.getItem('objToCompare'));
     this.isItInCompare = arrCompare.find(x => x.id === this.currentBuggy.id);
     if(!this.isItInCompare) {
       if(arrCompare) {
@@ -67,8 +69,6 @@ isItInCompare: boolean;
       alert('Этот товар уже добавлен к сравнению.');
     }
   }
-
-  
 
   // getAccessorise(): void {
   //   // const id = idParam ? +idParam : +this.route.snapshot.paramMap.get('id');

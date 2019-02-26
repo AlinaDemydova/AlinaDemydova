@@ -10,9 +10,6 @@ export class AccessoriseService {
   constuctor(){}
 
   getAccessorise(id: number): Observable<AccessoriseTemplate> {
-    //   if (id < 200) {
-    //     return of(ACCESSORISE.filter(forBuggyXs == true).find(accessorise => accessorise.id === id));
-    //   }
     return of(ACCESSORISE.find(accessorise => accessorise.id === id));
   }
 

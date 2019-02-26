@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, Input } from '@angular/core';
+import { Component, OnInit, TemplateRef, Input, Output } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { ProductService } from '../product-page/product.service';
 // import { Location } from '@angular/common';
 
 @Component({
+  outputs: ['countQuantitySum'],
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.scss']
@@ -22,7 +23,7 @@ export class CartPageComponent implements OnInit {
   productsInCart: ProductTemplate[];
   firstTotal: number;
   total: number;
-  public countQuantitySum: number;
+  public countQuantitySum: number = 0;
    
   constructor(private formBuilder: FormBuilder,
     private productService: ProductService,
@@ -52,7 +53,6 @@ export class CartPageComponent implements OnInit {
     if(result){
       result.totalItem = result.price * result.quantity;
     } 
-    
     //this.productService.cartSubject.next(true);
   }
 
@@ -60,7 +60,7 @@ export class CartPageComponent implements OnInit {
     this.total = 0;
     this.productsInCart.map(x=>{ this.total += x.price * x.quantity;
     console.log(x.price, x.quantity, this.total)});
-    this.productsInCart.map(x=> x.quantity = x.quantity);
+    this.productsInCart.map(x=> x.quantity);
     this.countQuantity();
   }
   deleteProduct(id: number){

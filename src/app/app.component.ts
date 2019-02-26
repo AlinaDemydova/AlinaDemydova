@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, Input } from '@angular/core';
+import { Component, OnInit, TemplateRef, Input, Output } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -13,6 +13,8 @@ import { ProductService } from './product-page/product.service';
 import { CartPageComponent } from './cart-page/cart-page.component';
 
 @Component({
+  providers: [CartPageComponent],
+  inputs: ['countQuantitySum'],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
@@ -20,7 +22,7 @@ import { CartPageComponent } from './cart-page/cart-page.component';
 export class AppComponent 
 // implements OnInit 
 {
-  @Input() countQuantitySum: number;
+  //@Input() countQuantitySum: number;
   title = 'NewProjectEasywalker';
   buggySection = SECTION;
   strollerSection = SECTION;
@@ -41,18 +43,20 @@ export class AppComponent
     ngOnInit(): void {
       this.getSectionBuggy();
       this.getSectionStroller();
-      this.cal();
+      //this.cal();
       // this.getActive();
       // this.route.params.subscribe((params) => {console.log(params['id'])});
       this.activeMenu();
       this.router.events.subscribe((val) => { this.activeMenu() });
     }
 
-  cal(){
-    const arr = JSON.parse(localStorage.getItem('obj'));
-    this.totalChart = 0;
-    arr.forEach(x => this.totalChart += x.quantity);
-  }
+  // cal(){
+  //   let productsInCart = JSON.parse(localStorage.getItem('obj'));
+  //   // this.totalChart = 0;
+  //   // arr.forEach(x => this.totalChart += x.quantity);
+  //   this.countQuantitySum = 0;
+  //   productsInCart.forEach(x => this.countQuantitySum += x.quantity);
+  // }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
