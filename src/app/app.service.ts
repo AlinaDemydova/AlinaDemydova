@@ -17,5 +17,4 @@ export class AppService {
     return of(SECTION.filter(x => x.type == 'stroller'));
   }
 
-
 }

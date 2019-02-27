@@ -19,10 +19,7 @@ import { CartPageComponent } from './cart-page/cart-page.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent 
-// implements OnInit 
-{
-  //@Input() countQuantitySum: number;
+export class AppComponent {
   title = 'NewProjectEasywalker';
   buggySection = SECTION;
   strollerSection = SECTION;
@@ -44,26 +41,15 @@ export class AppComponent
     ngOnInit(): void {
       this.getSectionBuggy();
       this.getSectionStroller();
-      //this.cal();
-      // this.getActive();
-      // this.route.params.subscribe((params) => {console.log(params['id'])});
       this.activeMenu();
       this.router.events.subscribe((val) => { this.activeMenu() });
-
+      
       this.productService.cartSubject.subscribe(x=> {
         if(x){
           this.viewCount = x;
         }
       })
     }
-
-  // cal(){
-  //   let productsInCart = JSON.parse(localStorage.getItem('obj'));
-  //   // this.totalChart = 0;
-  //   // arr.forEach(x => this.totalChart += x.quantity);
-  //   this.countQuantitySum = 0;
-  //   productsInCart.forEach(x => this.countQuantitySum += x.quantity);
-  // }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -93,11 +79,7 @@ export class AppComponent
     } else {
       this.currentPage = 'main';
     }
-    //console.log(this.router.url)
   }
-
-
-
  
 }
 

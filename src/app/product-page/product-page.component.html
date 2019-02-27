@@ -24,13 +24,12 @@
 					<li>Оплата при получении</li>
 					<li>Гарантия 12 месяцев</li>
 				</ul>
-		<div class="text-center" style="width: 237px; margin: auto;">
-			<button class="add_to_compare" (click)='addToCompare()'>
-				<img src="../../assets/img/img-product/shape.png" style="margin-right: 10px;">Добавить в сравнение
-			</button>
-			<button routerLink='/compare' class="go_to_compare" style='padding-left: 30px' [class.button_go_to_compare_visible]="this.isItInCompare !== false">Перейти к сравнению</button>
-			<!-- <button routerLink='/compare' class="go_to_compare" [class.button_go_to_compare_visible]="this.isItInCompare !== false && currentBuggy.id === this.isItInCompare.id">Перейти к сравнению</button> -->
-		</div>
+				<div class="text-center" style="width: 237px; margin: auto;">
+					<button class="add_to_compare" (click)='addToCompare()'>
+						<img src="../../assets/img/img-product/shape.png" style="margin-right: 10px;">Добавить в сравнение
+					</button>
+					<button routerLink='/compare' class="go_to_compare" style='padding-left: 30px' [class.button_go_to_compare_visible]="this.isItInCompare !== false">Перейти к сравнению</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -39,39 +38,39 @@
 <div class="container-fluid container_padding">
 	<div class="container mock_product">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
-		<li class="nav-item">
-			<a aria-controls="home" aria-selected="true" class="nav-link active"
-			data-toggle="tab" href="#home" id="home-tab" role="tab">Описание</a>
-		</li>
-		<li class="nav-item">
-			<a aria-controls="profile" aria-selected="false" class="nav-link"
-			data-toggle="tab" href="#profile" id="profile-tab" role="tab">Особенности</a>
-		</li>
-		<li class="nav-item" style="width: 34%">
-			<a aria-controls="contact" aria-selected="false" class="nav-link"
-			data-toggle="tab" href="#contact" id="contact-tab" role="tab">Технические характеристики</a>
-		</li>
-	</ul>
-	<div class="tab-content" id="myTabContent">
-		<div aria-labelledby="home-tab" class="tab-pane fade show active" id="home"
-		role="tabpanel">
-		SEO-text
+			<li class="nav-item">
+				<a aria-controls="home" aria-selected="true" class="nav-link active"
+				data-toggle="tab" href="#home" id="home-tab" role="tab">Описание</a>
+			</li>
+			<li class="nav-item">
+				<a aria-controls="profile" aria-selected="false" class="nav-link"
+				data-toggle="tab" href="#profile" id="profile-tab" role="tab">Особенности</a>
+			</li>
+			<li class="nav-item" style="width: 34%">
+				<a aria-controls="contact" aria-selected="false" class="nav-link"
+				data-toggle="tab" href="#contact" id="contact-tab" role="tab">Технические характеристики</a>
+			</li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+			<div aria-labelledby="home-tab" class="tab-pane fade show active" id="home"
+			role="tabpanel">
+			SEO-text
 			<br>
 			{{currentBuggy.seoText}}	
-		</div>
+			</div>
 
-		<div aria-labelledby="profile-tab" class="tab-pane fade" id="profile" role=
-		"tabpanel">
-			<ul>
-				<li>{{currentBuggy.feature1}}</li>
-				<li>{{currentBuggy.feature2}}</li>
-				<li>{{currentBuggy.feature3}}</li>
-				<li>{{currentBuggy.feature4}}</li>
-				<li>{{currentBuggy.feature5}}</li>
-				<li>{{currentBuggy.feature6}}</li>
-				<li>{{currentBuggy.feature7}}</li>
-			</ul>
-		</div>
+			<div aria-labelledby="profile-tab" class="tab-pane fade" id="profile" role=
+			"tabpanel">
+				<ul>
+					<li>{{currentBuggy.feature1}}</li>
+					<li>{{currentBuggy.feature2}}</li>
+					<li>{{currentBuggy.feature3}}</li>
+					<li>{{currentBuggy.feature4}}</li>
+					<li>{{currentBuggy.feature5}}</li>
+					<li>{{currentBuggy.feature6}}</li>
+					<li>{{currentBuggy.feature7}}</li>
+				</ul>
+			</div>
 		<div aria-labelledby="contact-tab" class="tab-pane fade" id="contact" role=
 		"tabpanel">
 			<table class="table">
@@ -105,9 +104,7 @@
 						<td><p>{{currentBuggy.basketForThings}}</p></td>
 					</tr>
 				</tbody>
-			
 			</table>
-		
 		</div>
 	</div>
 	</div>
@@ -115,10 +112,8 @@
 	
 <div class="container container_padding text-center">
 	<h2>С этим товаром обычно покупают</h2>
-	
 	<div class='text-center container_padding'>
-	  <carousel>
-		
+	  <carousel>	
 			<slide *ngFor='let accesorise of accessorises'>
 				<div><img src="{{accesorise.img1}}" alt="accessorise" style="max-width: 200px;"></div>
 				<br>
@@ -132,7 +127,6 @@
 					</button>
 				</div>
 			</slide>
-
 	  </carousel>
 	</div>
 </div>

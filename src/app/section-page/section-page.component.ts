@@ -14,6 +14,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   templateUrl: './section-page.component.html',
   styleUrls: ['./section-page.component.scss']
 })
+
 export class SectionPageComponent implements OnInit {
   section : SectionTemplate;
   buggys = ALLBUGGYS;
@@ -28,7 +29,6 @@ export class SectionPageComponent implements OnInit {
       this.getSection();
       this.getBuggys();
       this.route.params.subscribe(params => {
-        // console.log(params['id']);
         this.getSection(params['id']);
         this.getBuggys(params['model']);
       });

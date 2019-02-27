@@ -19,12 +19,11 @@ import { ProductService } from '../product-page/product.service';
 export class CartPageComponent implements OnInit {
   
   modalRef: BsModalRef;
-  public OrderForm: FormGroup;
-
   productsInCart: ProductTemplate[];
   firstTotal: number;
   total: number;
   public countQuantitySum: number = 0;
+  public OrderForm: FormGroup;
 
   // orderForm
   // user = new User()
@@ -41,17 +40,13 @@ export class CartPageComponent implements OnInit {
     this.calculateFirstSum();
     this.calculateTotal();
     this.countQuantity();
-
-    if (!this.OrderForm) {
-      this.OrderForm = this.formBuilder.group({
-        'UserName': new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(5)]),
-        'Password': new FormControl('', [Validators.required])
-      });
-    }
+    this.orderForm();    
   }
+
   getItemsFromLocalStorage() {
     this.productsInCart = JSON.parse(localStorage.getItem('obj'));
   }
+
   calculateFirstSum() {
   this.productsInCart.forEach(x=> {
     x.totalItem = x.price * x.quantity;
@@ -74,12 +69,13 @@ export class CartPageComponent implements OnInit {
     }
     this.countQuantity();
   }
+
   deleteProduct(id: number){
     // this.productsInCart = this.productsInCart.filter(x => x != itemInCart)
     this.productsInCart = JSON.parse(localStorage.getItem('obj'));
     this.productsInCart = this.productsInCart.filter(x=> x.id !== id);
     localStorage.setItem('obj', JSON.stringify(this.productsInCart));
-    //this.total = 0;
+    //this.countQuantity();
     this.calculateFirstSum();
     this.calculateTotal();
   }
@@ -89,21 +85,29 @@ export class CartPageComponent implements OnInit {
     this.productsInCart.forEach(x => this.countQuantitySum += x.quantity);
     // localStorage.setItem('obj', JSON.stringify(this.productsInCart))
     this.productService.cartSubject.next(this.countQuantitySum);
+  }
+
+  orderForm() {
+    if (!this.OrderForm) {
+      this.OrderForm = this.formBuilder.group({
+        'UserName': new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(5)]),
+        'Password': new FormControl('', [Validators.required])
+      });
     }
-    // addOrder() {
-    //  // alert(this.USER);
-    // }
-  
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+  // addOrder() {
+  //  // alert(this.USER);
+  // }
   // makeOrder(){
   //   //this.router.navigateByUrl('/order');
   // }
   // clearCart() {
   //   this.productsInCart = localStorage.clear();
   // }
-
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  }
 }
 
 

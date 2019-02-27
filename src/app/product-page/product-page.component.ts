@@ -50,6 +50,7 @@ accesorise: AccessoriseTemplate;
     this.productService.cartSubject.next();
     this.router.navigateByUrl('/cart');
   }
+
   addToCartAccessorises(id: number) {
     const arr = JSON.parse(localStorage.getItem('obj'));
     this.accesorise = this.accessorises.find(x=> x.id === id);
@@ -62,6 +63,7 @@ accesorise: AccessoriseTemplate;
     this.productService.cartSubject.next();
     this.router.navigateByUrl('/cart');
   }
+
   addToCompare() {
     const arrCompare = JSON.parse(localStorage.getItem('objToCompare'));
     if(arrCompare) {
@@ -81,12 +83,6 @@ accesorise: AccessoriseTemplate;
     }
   }
 
-  // getAccessorise(): void {
-  //   // const id = idParam ? +idParam : +this.route.snapshot.paramMap.get('id');
-  //   // console.log(id);
-  //   // console.log(this.currentBuggy.sectionId);
-  //   this.productService.getAccessorise().subscribe(accessorises =>{ this.accessorises = accessorises; console.log(this.accessorises)});
-  // }
   getAccessorise(): void {
     if(this.currentBuggy.sectionId == 1 || this.currentBuggy.sectionId == 2 || this.currentBuggy.sectionId == 3) {
       this.productService.getAccessoriseXS().subscribe(accessorises =>{ this.accessorises = accessorises; });
@@ -101,5 +97,4 @@ accesorise: AccessoriseTemplate;
     }
   }
   
-
 }

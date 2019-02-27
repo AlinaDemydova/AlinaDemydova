@@ -27,13 +27,3 @@ export class ProductTemplate {
     quantity: number;
     totalItem?: number;
 }
-
-// export class ProductTechTemplate {
-//     'Возраст ребёнка'?: string;
-//     'Вес ребёнка'?: string;
-//     'Тип складывания'?: string;
-//     'Регулировка спинки'?: string;
-//     'Внутренние ремни'?: string;
-//     'Съёмные мягкие части'?: string;
-//     'Корзина для вещей'?: string;
-// }

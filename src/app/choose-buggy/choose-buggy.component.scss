@@ -14,19 +14,21 @@ button, input[type='submit'] {
     font-weight: 700;
     border-radius: 5px;
   }
-  input:first-child {
-    margin-top: 60px;
-  } 
-  .container_padding {
-    padding: 30px;
-  }
 
-  .card {
-    margin-top: 60px;
-    border: none;
-    img {
-      border: 2px solid $mainColorRed;
-      border-radius: 5px;
-      padding: 1px;
-    }
+input:first-child {
+  margin-top: 60px;
+}
+
+.container_padding {
+  padding: 30px;
+}
+
+.card {
+  margin-top: 60px;
+  border: none;
+  img {
+    border: 2px solid $mainColorRed;
+    border-radius: 5px;
+    padding: 1px;
   }
+}

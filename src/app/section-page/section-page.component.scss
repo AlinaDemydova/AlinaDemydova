@@ -17,13 +17,12 @@ button {
   }
 
 .section_main_screen {
-    
-    background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
 	height: 250px;
-    color: black;
-    
+  color: black;  
 }
+
 h1, h2 {
     padding-top: 20px;
     padding-bottom: 40px;
@@ -32,8 +31,9 @@ h1, h2 {
 .card {
     border: none;
     margin-bottom: 30px;
+
     img {
-        border: 2px solid $mainColorRed;
+    border: 2px solid $mainColorRed;
     border-radius: 5px;
     padding: 1px;
     }

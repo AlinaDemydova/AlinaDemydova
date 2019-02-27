@@ -18,6 +18,5 @@ export class SectionService {
   getBuggys(model: string): Observable<ProductTemplate[]> {
     return of(ALLBUGGYS.filter(x => x.model === model));
   }
-
   
 }

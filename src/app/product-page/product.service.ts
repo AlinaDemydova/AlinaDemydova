@@ -25,7 +25,6 @@ cartSubject = new Subject<number>();
 constructor(private http: HttpClient){}
 
   getProduct(id: number): Observable<ProductTemplate> {
-    //console.log(id);
     return of(ALLBUGGYS.find(x => x.id === id));   
   }
 
@@ -46,14 +45,6 @@ constructor(private http: HttpClient){}
   //   return this.http.post<any>(url , order, httpOptions)
   // }
   // https://angular.io/tutorial/toh-pt6
-  
-  // getAccessoriseForAll(): Observable<AccessoriseTemplate[]> {
-  //   if (this.currentBuggy.sectionId == 1) {
-  //     return of(ACCESSORISE.filter(x=> x.forBuggyXs));
-  //   } else {
-  //     return of(ACCESSORISE.filter(x=> x.forHarvey));
-  //   }
-    
-  // }
+
 
 }
