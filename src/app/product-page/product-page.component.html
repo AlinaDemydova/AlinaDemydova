@@ -119,11 +119,18 @@
 	<div class='text-center container_padding'>
 	  <carousel>
 		
-			<slide *ngFor='let slide of accessorises'>
-				<div><img src="{{slide.img1}}" alt="accessorise" style="max-width: 200px;"></div>
-				<div>{{slide.h1}}</div>
-				<div><b>{{slide.price}} грн.</b></div>
-				<div style="margin-bottom: 40px;"><button class="btn_buy"><img src="../../assets/img/img-product/cart.png" style="margin-right: 10px;">Купить</button></div>
+			<slide *ngFor='let accesorise of accessorises'>
+				<div><img src="{{accesorise.img1}}" alt="accessorise" style="max-width: 200px;"></div>
+				<br>
+				<div>{{accesorise.h1}}</div>
+				<br>
+				<div><b>{{accesorise.price}} грн.</b></div>
+				<br>
+				<div style="margin-bottom: 40px;">
+					<button class="btn_buy" (click)='addToCartAccessorises(accesorise.id)'>
+						<img src="../../assets/img/img-product/cart.png" style="margin-right: 10px;">Купить
+					</button>
+				</div>
 			</slide>
 
 	  </carousel>

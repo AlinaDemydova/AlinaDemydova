@@ -101,9 +101,12 @@ hr {
         background-image: url(../../assets/img/img_cart/plus_icon.png);
     }
 }
-.modal-body {
+.form-horizontal {
+    padding: 15px;
+}
+.form-group {
     input[type="text"], textarea {
-        width: 150px;
+        width: 300px;
         border: 2px solid black;
         border-radius: 5px;
         margin: 5px 30px 5px;

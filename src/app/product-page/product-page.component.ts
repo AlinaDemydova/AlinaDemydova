@@ -49,9 +49,19 @@ accesorise: AccessoriseTemplate;
     }
     this.productService.cartSubject.next();
     this.router.navigateByUrl('/cart');
-
   }
-
+  addToCartAccessorises(id: number) {
+    const arr = JSON.parse(localStorage.getItem('obj'));
+    this.accesorise = this.accessorises.find(x=> x.id === id);
+    if(arr) {
+      arr.push(this.accesorise);
+      localStorage.setItem('obj', JSON.stringify(arr));
+    } else {
+      localStorage.setItem('obj', JSON.stringify([this.accesorise]));
+    }
+    this.productService.cartSubject.next();
+    this.router.navigateByUrl('/cart');
+  }
   addToCompare() {
     const arrCompare = JSON.parse(localStorage.getItem('objToCompare'));
     if(arrCompare) {

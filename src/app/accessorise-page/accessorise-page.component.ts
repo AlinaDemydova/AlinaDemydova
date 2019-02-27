@@ -28,9 +28,7 @@ export class AccessorisePageComponent implements OnInit {
 
   addToCartAccessorise(id: number): void {
     const arr = JSON.parse(localStorage.getItem('obj'));
-       
     this.accesorise = this.accessorises.find(x=> x.id === id);
-
     if(arr) {
       arr.push(this.accesorise);
       localStorage.setItem('obj', JSON.stringify(arr));
