@@ -30,7 +30,7 @@ buggySubs: Subscription;
   ) { }
 
   ngOnInit() {
-    this.sortByBuggy = this.productService.checkBuggy ? true : false; 
+    this.sortByBuggy = this.productService.checkBuggy ? true : false;
     this.sortByStroller = this.productService.stroller ? true : false;       
     this.sortedProducts();
   }

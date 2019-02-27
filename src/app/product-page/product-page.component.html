@@ -25,7 +25,7 @@
 					<li>Гарантия 12 месяцев</li>
 				</ul>
 		<div class="text-center" style="width: 237px; margin: auto;">
-			<button class="add_to_compare" (click)='addToCompare()'>
+			<button class="add_to_compare" (click)='addToCompare(this.currentBuggy)'>
 				<img src="../../assets/img/img-product/shape.png" style="margin-right: 10px;">Добавить в сравнение
 			</button>
 			<button routerLink='/compare' class="go_to_compare" [class.button_go_to_compare_visible]="this.isItInCompare !== false">Перейти к сравнению</button>
@@ -120,7 +120,7 @@
 	  <carousel>
 		
 			<slide *ngFor='let slide of accessorises'>
-				<div><img src="{{slide.img}}" alt="accessorise" style="max-width: 200px;"></div>
+				<div><img src="{{slide.img1}}" alt="accessorise" style="max-width: 200px;"></div>
 				<div>{{slide.h1}}</div>
 				<div><b>{{slide.price}} грн.</b></div>
 				<div style="margin-bottom: 40px;"><button class="btn_buy"><img src="../../assets/img/img-product/cart.png" style="margin-right: 10px;">Купить</button></div>

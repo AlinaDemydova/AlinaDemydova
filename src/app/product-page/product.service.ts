@@ -1,5 +1,3 @@
-
-
 import { Injectable } from "@angular/core";
 import { Observable, of, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -8,6 +6,11 @@ import { ALLBUGGYS } from './mock-product';
 import { SectionPageComponent } from '../section-page/section-page.component';
 import { ACCESSORISE } from '../accessorise-page/mock-accessorise';
 import { AccessoriseTemplate } from '../accessorise-page/accessorise-template';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({providedIn: 'root'})
 export class ProductService {
@@ -17,9 +20,9 @@ currentBuggy: ProductTemplate;
 checkBuggy: boolean;
 stroller: boolean;
 
-cartSubject = new Subject<boolean>();
+cartSubject = new Subject<number>();
 
-  constuctor(){}
+constructor(private http: HttpClient){}
 
   getProduct(id: number): Observable<ProductTemplate> {
     //console.log(id);
@@ -38,6 +41,11 @@ cartSubject = new Subject<boolean>();
   getAccessoriseCharley(): Observable<AccessoriseTemplate[]> {
     return of(ACCESSORISE.filter(x=> x.forCharleyMini));
   }
+
+  sendOrder(order: any): Observable<any> {
+    return this.http.post<any>(url , order, httpOptions)
+  }
+  // https://angular.io/tutorial/toh-pt6
   
   // getAccessoriseForAll(): Observable<AccessoriseTemplate[]> {
   //   if (this.currentBuggy.sectionId == 1) {

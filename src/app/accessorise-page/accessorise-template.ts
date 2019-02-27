@@ -2,7 +2,7 @@
 export class AccessoriseTemplate {
     id: number;
     h1: string;
-    img: string;
+    img1: string;
     price: number;
     forHarvey?: boolean;
     forCharley?: boolean;

@@ -30,6 +30,7 @@ export class AppComponent
   sections: SectionTemplate; 
   totalChart: number;
   currentPage: string;
+  viewCount: number;
   
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +49,12 @@ export class AppComponent
       // this.route.params.subscribe((params) => {console.log(params['id'])});
       this.activeMenu();
       this.router.events.subscribe((val) => { this.activeMenu() });
+
+      this.productService.cartSubject.subscribe(x=> {
+        if(x){
+          this.viewCount = x;
+        }
+      })
     }
 
   // cal(){

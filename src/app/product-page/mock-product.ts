@@ -481,7 +481,7 @@ export const ALLBUGGYS: ProductTemplate[] = [
     backrestAdjustment: 'Есть',
     seatBelts: 'Есть, 5-ти точечные',
     basketForThings: 'Да, до 5 кг.',
-    quantity: 1,
+    quantity: 1
 },
 ]
 

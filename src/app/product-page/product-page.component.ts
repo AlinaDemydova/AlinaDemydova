@@ -39,24 +39,25 @@ accesorise: AccessoriseTemplate;
     this.productService.getProduct(id).subscribe(product => this.currentBuggy = product);
   }
 
- public addToCart() {
+  addToCart() {
     const arr = JSON.parse(localStorage.getItem('obj'));
-    
-    this.accesorise = this.accessorises.find(x=> x.id === this.accesorise.id);
-
     if(arr) {
-      arr.push(this.currentBuggy || this.accesorise);
+      arr.push(this.currentBuggy);
       localStorage.setItem('obj', JSON.stringify(arr));
     } else {
-      localStorage.setItem('obj', JSON.stringify([this.currentBuggy] || [this.accesorise]));
+      localStorage.setItem('obj', JSON.stringify([this.currentBuggy]));
     }
-    this.productService.cartSubject.next(true);
+    this.productService.cartSubject.next();
     this.router.navigateByUrl('/cart');
+
   }
 
   addToCompare() {
     const arrCompare = JSON.parse(localStorage.getItem('objToCompare'));
-    this.isItInCompare = arrCompare.find(x => x.id === this.currentBuggy.id);
+    if(arrCompare) {
+      this.isItInCompare = arrCompare.find(x => x.id === this.currentBuggy.id);
+    }
+  
     if(!this.isItInCompare) {
       if(arrCompare) {
         arrCompare.push(this.currentBuggy);

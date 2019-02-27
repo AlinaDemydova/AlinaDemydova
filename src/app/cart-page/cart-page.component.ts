@@ -7,6 +7,7 @@ import { stringify } from '@angular/core/src/render3/util';
 import { ProductPageComponent } from '../product-page/product-page.component';
 import { ProductTemplate } from '../product-page/product-template';
 import { ProductService } from '../product-page/product.service';
+import { userInfo } from 'os';
 // import { Location } from '@angular/common';
 
 @Component({
@@ -18,12 +19,15 @@ import { ProductService } from '../product-page/product.service';
 export class CartPageComponent implements OnInit {
   
   modalRef: BsModalRef;
-  public loginForm: FormGroup;
+  public OrderForm: FormGroup;
 
   productsInCart: ProductTemplate[];
   firstTotal: number;
   total: number;
   public countQuantitySum: number = 0;
+
+  // orderForm
+  // user = new User()
    
   constructor(private formBuilder: FormBuilder,
     private productService: ProductService,
@@ -33,13 +37,19 @@ export class CartPageComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.getItemsFromLocalStorade();
+    this.getItemsFromLocalStorage();
     this.calculateFirstSum();
     this.calculateTotal();
     this.countQuantity();
 
+    if (!this.OrderForm) {
+      this.OrderForm = this.formBuilder.group({
+        'UserName': new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(5)]),
+        'Password': new FormControl('', [Validators.required])
+      });
+    }
   }
-  getItemsFromLocalStorade() {
+  getItemsFromLocalStorage() {
     this.productsInCart = JSON.parse(localStorage.getItem('obj'));
   }
   calculateFirstSum() {
@@ -58,9 +68,10 @@ export class CartPageComponent implements OnInit {
 
   calculateTotal(){
     this.total = 0;
-    this.productsInCart.map(x=>{ this.total += x.price * x.quantity;
-    console.log(x.price, x.quantity, this.total)});
-    this.productsInCart.map(x=> x.quantity);
+    this.productsInCart.map(x=> this.total += x.price * x.quantity);
+    if(this.productsInCart){
+      localStorage.setItem('obj', JSON.stringify(this.productsInCart));
+    }
     this.countQuantity();
   }
   deleteProduct(id: number){
@@ -68,7 +79,6 @@ export class CartPageComponent implements OnInit {
     this.productsInCart = JSON.parse(localStorage.getItem('obj'));
     this.productsInCart = this.productsInCart.filter(x=> x.id !== id);
     localStorage.setItem('obj', JSON.stringify(this.productsInCart));
-    this.productService.cartSubject.next(true);
     //this.total = 0;
     this.calculateFirstSum();
     this.calculateTotal();
@@ -77,8 +87,13 @@ export class CartPageComponent implements OnInit {
   countQuantity() {
     this.countQuantitySum = 0;
     this.productsInCart.forEach(x => this.countQuantitySum += x.quantity);
+    // localStorage.setItem('obj', JSON.stringify(this.productsInCart))
+    this.productService.cartSubject.next(this.countQuantitySum);
     }
- 
+    addOrder() {
+     // alert(this.USER);
+    }
+  
   // makeOrder(){
   //   //this.router.navigateByUrl('/order');
   // }
@@ -90,3 +105,13 @@ export class CartPageComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 }
+
+
+
+
+
+  
+
+
+  
+
