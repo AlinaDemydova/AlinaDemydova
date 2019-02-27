@@ -7,7 +7,7 @@ import { stringify } from '@angular/core/src/render3/util';
 import { ProductPageComponent } from '../product-page/product-page.component';
 import { ProductTemplate } from '../product-page/product-template';
 import { ProductService } from '../product-page/product.service';
-import { userInfo } from 'os';
+//import { userInfo } from 'os';
 // import { Location } from '@angular/common';
 
 @Component({

@@ -42,9 +42,9 @@ constructor(private http: HttpClient){}
     return of(ACCESSORISE.filter(x=> x.forCharleyMini));
   }
 
-  sendOrder(order: any): Observable<any> {
-    return this.http.post<any>(url , order, httpOptions)
-  }
+  // sendOrder(order: any): Observable<any> {
+  //   return this.http.post<any>(url , order, httpOptions)
+  // }
   // https://angular.io/tutorial/toh-pt6
   
   // getAccessoriseForAll(): Observable<AccessoriseTemplate[]> {
