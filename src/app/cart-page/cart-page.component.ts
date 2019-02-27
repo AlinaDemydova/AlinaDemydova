@@ -90,9 +90,9 @@ export class CartPageComponent implements OnInit {
     // localStorage.setItem('obj', JSON.stringify(this.productsInCart))
     this.productService.cartSubject.next(this.countQuantitySum);
     }
-    addOrder() {
-     // alert(this.USER);
-    }
+    // addOrder() {
+    //  // alert(this.USER);
+    // }
   
   // makeOrder(){
   //   //this.router.navigateByUrl('/order');
