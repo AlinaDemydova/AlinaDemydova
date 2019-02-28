@@ -11,6 +11,12 @@ import { AppService } from './app.service';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ProductService } from './product-page/product.service';
 import { CartPageComponent } from './cart-page/cart-page.component';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { ALLBUGGYS } from './product-page/mock-product';
+import { ProductTemplate } from './product-page/product-template';
+import { FiltrPipe } from './pipe.pipe';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   providers: [CartPageComponent],
@@ -28,6 +34,10 @@ export class AppComponent {
   totalChart: number;
   currentPage: string;
   viewCount: number;
+
+  allbuggys = ALLBUGGYS;
+  // selected: string;
+  // states: string[];
   
   constructor(
     private route: ActivatedRoute,
@@ -42,6 +52,7 @@ export class AppComponent {
       this.getSectionBuggy();
       this.getSectionStroller();
       this.activeMenu();
+     // this.searchlist();
       this.router.events.subscribe((val) => { this.activeMenu() });
       
       this.productService.cartSubject.subscribe(x=> {
@@ -50,6 +61,13 @@ export class AppComponent {
         }
       })
     }
+
+    // searchlist() {
+    //   this.states = this.allbuggys.reduce(this.states, x => this.states.push(x.h1));
+    //   console.log(this.states);
+    // }
+
+    // states // массив строк
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);

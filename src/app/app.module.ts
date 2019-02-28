@@ -17,6 +17,8 @@ import { ChooseBuggyComponent } from './choose-buggy/choose-buggy.component';
 
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { CompareComponent } from './compare/compare.component';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { FiltrPipe} from './pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { CompareComponent } from './compare/compare.component';
     CartPageComponent,
     AccessorisePageComponent,
     ChooseBuggyComponent,
-    CompareComponent
+    CompareComponent,
+    FiltrPipe
   ],
   imports: [
     BrowserModule,
@@ -38,9 +41,14 @@ import { CompareComponent } from './compare/compare.component';
     CarouselModule.forRoot(),
     PaginationModule.forRoot(),
     HttpClientModule,
+    TypeaheadModule.forRoot()
+  ],
+  exports: [
+    FiltrPipe
   ],
   providers: [
-    CartPageComponent
+    CartPageComponent,
+    FiltrPipe
     // Messages
   ],
   bootstrap: [AppComponent]
